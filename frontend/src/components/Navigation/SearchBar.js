@@ -1,5 +1,5 @@
 import {useState} from 'react';
-
+import './Navigation.css';
 
 
 const SearchBar = () => {
@@ -13,11 +13,9 @@ const SearchBar = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={e => searchAction(e)}>
+        <form className="seachbar-form" onSubmit={e => searchAction(e)}>
                 <input type="text" className="searchbar-field" value={searchText} onChange={e => setSearchText(e.target.value)} default="search"></input>
-            </form>
-        </div>
+        </form>
     )
 }
 

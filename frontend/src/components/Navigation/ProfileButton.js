@@ -1,6 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {useState, useEffect} from 'react';
 import * as sessionActions from '../../store/session';
+import './Navigation.css';
 
 const ProfileButton = ({user}) => {
     const dispatch = useDispatch();

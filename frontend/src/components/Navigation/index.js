@@ -4,6 +4,9 @@ import {useSelector} from 'react-redux';
 import ProfileButton from './ProfileButton';
 import SearchBar from './SearchBar';
 
+import './Navigation.css';
+
+
 
 const Navigation = ({ isLoaded }) => {
 
@@ -27,14 +30,19 @@ const Navigation = ({ isLoaded }) => {
 
     return (
         <nav className="header-nav">
-            <ul>
-                <li>
-                    <NavLink exact to="/">Home</NavLink>
-                    <SearchBar />
-                    {isLoaded && navBarLinks}
-                </li>
-            </ul>
-
+            <div className="side-space" />
+            <div className="logo-container">
+                <NavLink exact to="/">
+                    <img id="logo-img" src="/images/langbanana-logo1.svg"></img>
+                </NavLink>
+            </div>
+            <div className="seachbar-container">
+                <SearchBar />
+            </div>
+            <div className="buttons-container">
+                {isLoaded && navBarLinks}
+            </div>
+            <div className="side-space" />
         </nav>
     )
 }
