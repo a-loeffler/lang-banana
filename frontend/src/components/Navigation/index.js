@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 
 import ProfileButton from './ProfileButton';
 import SearchBar from './SearchBar';
+import NavBarButton from './NavBarButton';
 
 import './Navigation.css';
 
@@ -18,8 +19,8 @@ const Navigation = ({ isLoaded }) => {
     if (!currentUser) {
         navBarLinks = (
             <>
-                <NavLink to="/login">Log In</NavLink>
-                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/login"><NavBarButton color={"gray"} text={"Sign in"}/></NavLink>
+                <NavLink to="/signup"><NavBarButton color={"yellow"} text={"Create account"}/></NavLink>
             </>
         )
     } else {
@@ -33,8 +34,13 @@ const Navigation = ({ isLoaded }) => {
             <div className="side-space" />
             <div className="logo-container">
                 <NavLink exact to="/">
-                    <img id="logo-img" src="/images/langbanana-logo1.svg"></img>
+                    <img id="logo-img" alt="site logo" src="/images/langbanana-logo1.svg"></img>
                 </NavLink>
+            </div>
+            <div className="buttons-container">
+                <NavBarButton text={"Home"} color={"blue"}/>
+                <NavBarButton text={"Stream"} color={"gray"}/>
+                <NavBarButton text={"Library"} color={"gray"}/>
             </div>
             <div className="seachbar-container">
                 <SearchBar />

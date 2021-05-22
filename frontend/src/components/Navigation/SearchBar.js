@@ -14,7 +14,7 @@ const SearchBar = () => {
 
     return (
         <form className="seachbar-form" onSubmit={e => searchAction(e)}>
-                <input type="text" className="searchbar-field" value={searchText} onChange={e => setSearchText(e.target.value)} default="search"></input>
+                <input type="text" className="searchbar-field" value={searchText} onChange={e => setSearchText(e.target.value)} defaultValue="search"></input>
         </form>
     )
 }
