@@ -4,7 +4,7 @@ import './Navigation.css';
 
 const SearchBar = () => {
 
-    const [searchText, setSearchText] = useState("");
+    // const [searchText, setSearchText] = useState("");
 
     const searchAction = (e) => {
         e.preventDefault();
@@ -14,7 +14,7 @@ const SearchBar = () => {
 
     return (
         <form className="seachbar-form" onSubmit={e => searchAction(e)}>
-                <input type="text" className="searchbar-field" value={searchText} onChange={e => setSearchText(e.target.value)} defaultValue="search"></input>
+                <input type="text" className="searchbar-field" defaultValue="Search for a track, user or language" /*value={searchText} onChange={e => setSearchText(e.target.value)}*/ ></input>
         </form>
     )
 }

@@ -48,11 +48,11 @@ const LoginFormPage = () => {
                 <form className="form" id="login-form" onSubmit={e => submitHandler(e)}>
                     <div className="form-input-container">
                         <label className="form-label" htmlFor="login-credential">Name or Email: </label>
-                        <input type="text" defaultValue="email or username" id="login-credential" className="login-credential form-input" value={credential} onChange={e => setCredential(e.target.value)}></input>
+                        <input type="text" id="login-credential" className="login-credential form-input" value={credential} onChange={e => setCredential(e.target.value)}></input>
                     </div>
                     <div className="form-input-container">
                     <label className="form-label" htmlFor="login-password">Password: </label>
-                    <input type="password" defaultValue="password" id="login-password" className="login-password form-input" value={password} onChange={e => setPassword(e.target.value)}></input>
+                    <input type="password" id="login-password" className="login-password form-input" value={password} onChange={e => setPassword(e.target.value)}></input>
                     </div>
                     <div className="form-button-container">
                         <button className="form-button submit" type="submit">Log In</button>

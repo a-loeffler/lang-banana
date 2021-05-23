@@ -4,11 +4,11 @@
 import './Content.css';
 
 
-const MediaCard = ({title, artist}) => {
+const MediaCard = ({title, artist, groupNo}) => {
 
 
     return (
-        <div className="media-card-container">
+        <div className={`media-card-container media-group-${groupNo}`}>
             <div className="media-card-image"></div>
             <div className="media-card-description">
                 <h3 className="media-card-title">{title}</h3>
