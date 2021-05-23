@@ -8,6 +8,8 @@ import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
 
+import Scroll from './components/Content/Scroll';
+
 function App() {
   const dispatch = useDispatch()
 
@@ -22,6 +24,9 @@ function App() {
       <Navigation isLoaded={isLoaded}/>
       <h1>Hello from App</h1>
       <Switch>
+        <Route path="/media">
+          <Scroll />
+        </Route>
         <Route path="/login">
           <LoginFormPage />
         </Route>
