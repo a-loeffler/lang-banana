@@ -8,6 +8,7 @@ import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
 
+import Content from './components/Content';
 import Carousel from './components/Content/Carousel';
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
       <h1>Hello from App</h1>
       <Switch>
         <Route path="/media">
+          <Content />
+        </Route>
+        <Route path="/carousel">
           <Carousel />
         </Route>
         <Route path="/login">

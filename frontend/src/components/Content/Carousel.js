@@ -4,7 +4,7 @@ import MediaCard from './MediaCard';
 
 import './Content.css';
 
-const Carousel = ({scrollerTitle, groupNumber}) => {
+const Carousel = ({carouselTitle, groupNumber, /*mockData*/}) => {
 
     const mockData = {title: "Annyeonghaseyo", artist: ""};
 
@@ -26,13 +26,19 @@ const Carousel = ({scrollerTitle, groupNumber}) => {
     useEffect(() => {
 
         console.log("slidePosition: ", slidePosition)
-        let displaySlides = scrollTracks.slice(slidePosition, slidePosition + 4);
+        let displaySlides;
+
+        if (mockData.length > 4) {
+            displaySlides = mockData.scrollTracks.slice(slidePosition, slidePosition + 4);
+        } else {
+            displaySlides = mockData;
+        }
 
         console.log("display slides:  ", displaySlides);
 
         setSlidesToDisplay(displaySlides);
 
-    }, [slidePosition])
+    }, [slidePosition, mockData.scrollTracks])
 
     const backButtonActions = () => {
         if (slidePosition > 0) {
@@ -41,7 +47,7 @@ const Carousel = ({scrollerTitle, groupNumber}) => {
     }
 
     const forwardButtonActions = () => {
-        if (slidePosition < scrollTracks.length - 3) {
+        if (slidePosition < mockData.scrollTracks.length - 3) {
             setSlidePosition(slidePosition + 1);
         }
 
@@ -53,7 +59,7 @@ const Carousel = ({scrollerTitle, groupNumber}) => {
 
     return (
         <div>
-            <h2 className="content-scroller-title">{scrollerTitle || "Content Title"}</h2>
+            <h2 className="content-scroller-title">{carouselTitle || "Content Title"}</h2>
             <div className="content-scroller">
                 {slidesToDisplay.map((track, index) => <MediaCard key={index} title={track.title} groupNo={groupNumber || 1} artist={track.artist}/>)}
             </div>
