@@ -57,8 +57,8 @@ const Carousel = ({scrollerTitle, groupNumber}) => {
             <div className="content-scroller">
                 {slidesToDisplay.map((track, index) => <MediaCard key={index} title={track.title} groupNo={groupNumber || 1} artist={track.artist}/>)}
             </div>
-            <button id="backscroll" className="back" onClick={() => backButtonActions()}>◄</button>
-            <button id="frontscroll" className="forward" onClick={() => forwardButtonActions()}>►</button>
+            <button id="backscroll" className="back direction-button" onClick={() => backButtonActions()}>◄</button>
+            <button id="frontscroll" className="forward direction-button" onClick={() => forwardButtonActions()}>►</button>
         </div>
     )
 }
