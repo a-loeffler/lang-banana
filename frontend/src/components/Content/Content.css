@@ -1,6 +1,9 @@
-.content-scroller {
+
+
+.content-carousel {
     height: max-content;
-    width: 80vw;
+    width: 80%;
+    padding: 10px;
     display: grid;
     overflow-x: hidden;
     grid-auto-columns: 25%;
@@ -9,9 +12,12 @@
     grid-column-gap: 15px;
 }
 
-/* .content-scroller::-webkit-scrollbar {
-    display: none;
-} */
+.content-carousel-title {
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 10px;
+}
+
 
 .media-card-container {
     border-radius: 5px;
@@ -77,5 +83,9 @@
 .forward {
     position: relative;
     top: -150px;
-    left: 77%;
+    left: 80%;
+}
+
+.spacer {
+    height: 100px;
 }

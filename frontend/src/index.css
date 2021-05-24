@@ -1,2 +1,23 @@
 /* TODO Add site wide styles */
-@import-normalize;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.display-container {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 100vh;
+}
+
+.display-side-space {
+    background-color: #595959;
+    height: 100%;
+}
+
+.display-main {
+    background-color: #F8F8F8;
+    height: 100%;
+}

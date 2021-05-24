@@ -1,5 +1,7 @@
 import Carousel from './Carousel';
 
+import './Content.css';
+
 
 
 
@@ -14,7 +16,7 @@ const Content = () => {
 
     for (let i = 0; i < 10; i++) {
 
-        let scrollTracks = []
+        let scrollTracks = [];
 
         for (let j = 0; j < scrollTracks.length; j++) {
 
@@ -25,10 +27,11 @@ const Content = () => {
             track.title = `Group ${i} - ${j}`
             track.artist = j;
 
+            console.log("track", track);
+
             scrollTracks.push(track);
 
-
-
+            console.log("ScrollTracks from Content", scrollTracks)
 
         }
 
@@ -41,13 +44,14 @@ const Content = () => {
 
 
     return (
-        <div>
-            <div className="content-side-space"></div>
-            <div className="content-display-space">
-                {mockFetch.map(fetchIndex => <Carousel key={fetchIndex} carouselTitle={fetchIndex} mockData={mockData[fetchIndex]}/>)}
+        <>
+            <div className="spacer"></div>
+            <div className="content-container">
+                <div className="content-main-display">
+                    <Carousel />
+                </div>
             </div>
-            <div className="content-side-space"></div>
-        </div>
+        </>
 
     )
 }

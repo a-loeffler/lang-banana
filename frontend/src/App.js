@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 
 import * as sessionActions from './store/session';
 
+import './index.css';
+
 import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
@@ -23,21 +25,29 @@ function App() {
   return isLoaded && (
     <>
       <Navigation isLoaded={isLoaded}/>
-      <h1>Hello from App</h1>
-      <Switch>
-        <Route path="/media">
-          <Content />
-        </Route>
-        <Route path="/carousel">
-          <Carousel />
-        </Route>
-        <Route path="/login">
-          <LoginFormPage />
-        </Route>
-        <Route path="/signup">
-          <SignUpFormPage />
-        </Route>
-      </Switch>
+      <div className="display-container">
+        <div className="display-side-space" />
+        <div className="display-main">
+          <Switch>
+            <Route exact path="/">
+              <h1>Hello from App</h1>
+            </Route>
+            <Route path="/media">
+              <Content />
+            </Route>
+            <Route path="/carousel">
+              <Carousel />
+            </Route>
+            <Route path="/login">
+              <LoginFormPage />
+            </Route>
+            <Route path="/signup">
+              <SignUpFormPage />
+            </Route>
+          </Switch>
+        </div>
+        <div className="display-side-space" />
+      </div>
     </>
   );
 }
