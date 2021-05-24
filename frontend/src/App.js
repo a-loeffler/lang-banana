@@ -8,7 +8,7 @@ import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
 
-import Scroll from './components/Content/Scroll';
+import Carousel from './components/Content/Carousel';
 
 function App() {
   const dispatch = useDispatch()
@@ -25,7 +25,7 @@ function App() {
       <h1>Hello from App</h1>
       <Switch>
         <Route path="/media">
-          <Scroll />
+          <Carousel />
         </Route>
         <Route path="/login">
           <LoginFormPage />
