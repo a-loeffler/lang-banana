@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'playlistId'
     };
 
-    Playlist.hasMany(models.Track, columnMapping);
+    Playlist.belongsToMany(models.Track, columnMapping);
 
   };
   return Playlist;

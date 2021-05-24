@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'trackId'
     };
 
-    Track.hasMany(models.Playlist, columnMapping);
+    Track.belongsToMany(models.Playlist, columnMapping);
 
     Track.belongsTo(models.Language, {foreignKey: 'languageId'});
     Track.belongsTo(models.Topic, {foreignKey: 'topicId'});

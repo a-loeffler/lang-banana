@@ -13,5 +13,5 @@ module.exports = (sequelize, DataTypes) => {
   PlaylistTrack.associate = function(models) {
     // associations can be defined here
   };
-  return PlaylistTracks;
+  return PlaylistTrack;
 };
