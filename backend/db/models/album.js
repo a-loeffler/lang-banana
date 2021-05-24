@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     Album.belongsTo(models.Language, { foreignKey: 'languageId' });
     Album.belongsTo(models.Topic, { foreignKey: 'topicId' });
     Album.belongsTo(models.User, { foreignKey: 'creatorId' });
-    
+
 
   };
   return Album;
