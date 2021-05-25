@@ -1,4 +1,13 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+
+import { fetchTracks } from '../../store/tracks';
+
 import Carousel from './Carousel';
+
+
+
 
 import './Content.css';
 
@@ -6,8 +15,15 @@ import './Content.css';
 
 
 const Content = () => {
+    const dispatch = useDispatch();
 
+    useEffect(() => {
+        dispatch(fetchTracks());
+    }, [])
 
+    const tracks = useSelector(state => state.tracks);
+
+    console.log(tracks)
     // const bigFetch = await fetch('/api/tracks')
 
     // const mockData = {title: "", artist: ""};
@@ -49,7 +65,7 @@ const Content = () => {
     return (
         <div className="content-container">
             <div className="content-main-display">
-                <Carousel />
+                {/* <Carousel /> */}
             </div>
         </div>
     )

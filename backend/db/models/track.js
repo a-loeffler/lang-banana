@@ -39,6 +39,8 @@ module.exports = (sequelize, DataTypes) => {
     Track.belongsTo(models.Topic, {foreignKey: 'topicId'});
     Track.belongsTo(models.Album, {foreignKey: 'albumId'});
     Track.belongsTo(models.User, {foreignKey: 'creatorId'});
+
+    Track.hasMany(models.TrackLike, {foreignKey: 'trackId'});
   };
   return Track;
 };
