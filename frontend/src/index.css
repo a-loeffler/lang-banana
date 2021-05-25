@@ -9,7 +9,7 @@
 .display-container {
     display: grid;
     grid-template-columns: 10% 80% 10%;
-    grid-template-rows: 100vh;
+    grid-template-rows: minmax(100vh, auto);
 }
 
 .display-side-space {

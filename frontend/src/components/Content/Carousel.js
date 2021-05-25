@@ -4,18 +4,13 @@ import MediaCard from './MediaCard';
 
 import './Content.css';
 
-const Carousel = ({carouselTitle, groupNumber}) => {
+const Carousel = ({carouselTitle, list}) => {
 
-    const mockData = {title: "Annyeonghaseyo", artist: ""};
+    // const mockData = {title: "Annyeonghaseyo", artist: ""};
 
-    const scrollTracks = [{...mockData}, {...mockData}, {...mockData}, {...mockData}, {...mockData}, {...mockData}, {...mockData}, {...mockData}, {...mockData}, {...mockData}, {...mockData}, {...mockData}, {...mockData}, {...mockData}];
 
-    for (let i = 0; i < scrollTracks.length; i++) {
-        let track = scrollTracks[i];
-        track.artist = i;
-    }
 
-    console.log(scrollTracks)
+    console.log("List for carousel:  ", list)
 
     const [slidePosition, setSlidePosition] = useState(0);
 
@@ -25,14 +20,14 @@ const Carousel = ({carouselTitle, groupNumber}) => {
 
     useEffect(() => {
 
-        console.log("slidePosition: ", slidePosition)
-        let displaySlides = scrollTracks.slice(slidePosition, slidePosition + 4);
+        // console.log("slidePosition: ", slidePosition)
+        let displaySlides = list.slice(slidePosition, slidePosition + 4);
 
-        console.log("display slides:  ", displaySlides);
+        // console.log("display slides:  ", displaySlides);
 
         setSlidesToDisplay(displaySlides);
 
-    }, [slidePosition, scrollTracks])
+    }, [slidePosition, list])
 
     const backButtonActions = () => {
         if (slidePosition > 0) {
@@ -41,7 +36,7 @@ const Carousel = ({carouselTitle, groupNumber}) => {
     }
 
     const forwardButtonActions = () => {
-        if (slidePosition < scrollTracks.length - 3) {
+        if (slidePosition < list.length - 3) {
             setSlidePosition(slidePosition + 1);
         }
 
@@ -55,7 +50,7 @@ const Carousel = ({carouselTitle, groupNumber}) => {
         <div>
             <h2 className="content-carousel-title">{carouselTitle || "Content Title"}</h2>
             <div className="content-carousel">
-                {slidesToDisplay.map((track, index) => <MediaCard key={index} title={track.title} groupNo={groupNumber || 1} artist={track.artist}/>)}
+                {slidesToDisplay.map((track, index) => <MediaCard key={index} title={track.name} groupNo={1} artist={track.User.userName} albumArtUrl={track.Album.coverArtUrl} />)}
             </div>
             {slidePosition > 0 && <button id="backscroll" className="back direction-button" onClick={() => backButtonActions()}>◄</button>}
             <button id="frontscroll" className="forward direction-button" onClick={() => forwardButtonActions()}>►</button>

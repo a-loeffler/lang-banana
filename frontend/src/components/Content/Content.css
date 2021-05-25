@@ -37,22 +37,35 @@
     margin-top: 5px;
 }
 
+.albumArt {
+    width: 100%;
+    height: auto;
+}
+
 .media-card-description {
     background-color: yellow;
     width: 90%;
     height: 35px;
+    /* overflow: hidden;
+    white-space: nowrap; */
 }
 
 .media-card-title {
     margin: 0;
     padding: 0;
     font-size: 1.0rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .media-card-artist {
     font-size: 0.8rem;
     margin: 0;
     padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .direction-button {
