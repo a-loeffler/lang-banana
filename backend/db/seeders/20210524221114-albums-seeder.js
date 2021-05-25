@@ -7,7 +7,7 @@ module.exports = {
         creatorId: 1,
         languageId: 1,
         topicId: 1,
-        name: "What is this?",
+        name: "Beginner English Day 1",
         coverArtUrl: 'https://ibb.co/MMMDzBp',
       },
       {

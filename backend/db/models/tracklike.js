@@ -1,8 +1,14 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const TrackLike = sequelize.define('TrackLike', {
-    likerId: DataTypes.INTEGER,
-    trackId: DataTypes.INTEGER
+    likerId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    trackId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   }, {});
   TrackLike.associate = function(models) {
     // associations can be defined here
