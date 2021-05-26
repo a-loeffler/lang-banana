@@ -11,7 +11,7 @@ const TrackUploadFormPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [addToAlbum, setAddToAlbum] = useState("no");
+    const [addToAlbum, setAddToAlbum] = useState("yes");
     const [errors, setErrors] = useState([]);
 
     const languages = useSelector(state => state.meta.languages);
@@ -30,8 +30,8 @@ const TrackUploadFormPage = () => {
     const [trackAudioFile, setTrackAudioFile] = useState(null);
 
 
-
     useEffect(() => {
+
         if (!userAlbums) {
             dispatch(fetchAlbumsForOneUser(user.id))
         }
@@ -43,6 +43,7 @@ const TrackUploadFormPage = () => {
             <h3>Sorry, you must be logged in to upload media</h3>
         )
     }
+
 
     let chooseAlbum;
 
@@ -89,6 +90,8 @@ const TrackUploadFormPage = () => {
                     setErrors(newErrors);
                 }
             });
+
+            // history.push("/tracks")
     };
 
 //track requirements: name, album, creator(i.e. user), languageId, topicId,
@@ -121,10 +124,10 @@ const TrackUploadFormPage = () => {
                 </div>
                 <div>
                     <p>Are you adding this track to a pre-existing album?</p>
-                    <input type="radio" id="track-album-switch-no" name="track-album-switch" value={addToAlbum} onClick={() => setAddToAlbum("no")} checked={addToAlbum === "no"} ></input>
-                    <label htmlFor="track-album-switch-no">No</label>
                     <input type="radio" id="track-album-switch-yes" name="track-album-switch" value={addToAlbum} onClick={() => setAddToAlbum("yes")} checked={addToAlbum === "yes"} ></input>
                     <label htmlFor="track-album-switch-yes">Yes</label>
+                    <input type="radio" id="track-album-switch-no" name="track-album-switch" value={addToAlbum} onClick={() => setAddToAlbum("no")} checked={addToAlbum === "no"} ></input>
+                    <label htmlFor="track-album-switch-no">No</label>
                     {addToAlbum === "yes" && chooseAlbum}
                 </div>
                 <div>
@@ -132,7 +135,7 @@ const TrackUploadFormPage = () => {
                     <input type="file" id="track-file" accept="audio/*" name="audioFile" value={trackAudioFile} onChange={e => updateFile(e)}></input>
                 </div>
                 <div>
-                    <button type="submit">Upload Track</button>
+                    <button type="submit" disabled={!!trackAudioFile}>Upload Track</button>
                 </div>
 
             </form>

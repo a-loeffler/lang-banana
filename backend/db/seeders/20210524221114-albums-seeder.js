@@ -70,6 +70,14 @@ module.exports = {
         creatorId: 13,
         languageId: 25,
         topicId: 26,
+        name: "unspecified",
+        coverArtUrl: 'https://i.ibb.co/XSSZnYp/albumimggeneric.png',
+      },
+      {
+        creatorId: 1,
+        languageId: 15,
+        topicId: 8,
+        name: "Klingon for Beginners",
         coverArtUrl: 'https://i.ibb.co/XSSZnYp/albumimggeneric.png',
       }
     ], {});

@@ -74,22 +74,23 @@ const validateUpload = [
     check('topicId')
       .exists({ checkFalsy: true })
       .withMessage('Please provide a topic for your track.'),
-
     handleValidationErrors,
 ];
 
 router.post("/", singleMulterUpload("track"), validateUpload, asyncHandler(async (req, res) => {
 
-    // *** creatorId might need to come from user auth ***
-    const {name, creatorId, albumId, languageId, topicId} = req.body;
-    const trackFileUrl = await singlePublicFileUpload(req.file);
-        //need to add trackFileUrl to Track model and the build below
+    // // *** creatorId might need to come from user auth ***
+    // const {name, creatorId, albumId, languageId, topicId} = req.body;
+    // const trackFileUrl = await singlePublicFileUpload(req.file);
+    //     //need to add trackFileUrl to Track model and the build below
 
-    const track = await Track.build({
-        name, creatorId, albumId, languageId, topicId
-    });
+    // const track = await Track.build({
+    //     name, creatorId, albumId, languageId, topicId
+    // });
 
-    //To Do: handle redirection? gotta check on that
+    // //To Do: handle redirection? gotta check on that
+
+    res.json({test: req.body.name})
 }));
 
 module.exports = router;

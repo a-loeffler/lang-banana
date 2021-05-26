@@ -35,11 +35,32 @@ export const fetchTracks = () => async (dispatch) => {
 }
 
 
-export const postNewTrack = (trackData) => async (dispatch) => {
+export const postNewTrack = (newTrackData) => async (dispatch) => {
 
-    const response = await fetch("/api/tracks", {
+    const {name, languageId, topicId, albumId, userId, file} = newTrackData;
 
+    const formData = new FormData();
+
+    formData.append("name", name);
+    formData.append("languageId", languageId);
+    formData.append("topicId", topicId);
+    formData.append("albumId", albumId);
+    formData.append("userId", userId);
+
+    formData.append("file", file);
+
+    const response = await csrfFetch("/api/tracks", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        },
+        body: formData,
     })
+
+    const data = await response.json();
+
+    dispatch(postTrack(data));
+
 }
 
 
@@ -51,6 +72,11 @@ const tracksReducer = (state = initialState, action) => {
         case GET_TRACKS: {
             let newState = {...state};
             newState["tracks"] = action.payload;
+            return newState;
+        }
+        case POST_TRACK: {
+            let newState = {...state};
+            newState.tracks[action.payload.id] = action.payload;
             return newState;
         }
         default: {
