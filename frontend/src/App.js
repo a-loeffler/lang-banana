@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import * as sessionActions from './store/session';
+import { fetchMeta } from './store/meta'
 
 import './index.css';
 
@@ -19,6 +20,7 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    dispatch(fetchMeta())
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch])
 

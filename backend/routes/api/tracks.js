@@ -1,11 +1,14 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const db = require('../../db/models');
+const { singlePublicFileUpload, singleMulterUpload } = require('../../awsS3')
 
 
 const router = express.Router();
 
-
+const { check } = require('express-validator');
+const { handleValidationErrors } = require('../../utils/validation');
+const { setTokenCookie } = require('../../utils/auth');
 
 //Get a big amount of tracks
 
@@ -47,6 +50,36 @@ router.get('/', asyncHandler(async (req, res) => {
 
 }));
 
+//To do: upload validations for tracks... example: name, image mem size, track mem size
+// {
+//     creatorId: 10,
+//     albumId: 8,
+//     languageId: 2,
+//     topicId: 25,
+//     name: "Uno a cincuenta / One to fifty",
+// }
 
+
+const validateUpload = [
+    check('name')
+      .exists({ checkFalsy: true })
+      .isLength({ min: 4 })
+      .withMessage('Please provide a name for your track with at least 4 characters.'),
+    handleValidationErrors,
+];
+
+router.post("/", singleMulterUpload("track"), validateUpload, asyncHandler(async (req, res) => {
+
+    // *** creatorId might need to come from user auth ***
+    const {name, creatorId, albumId, languageId, topicId} = req.body;
+    const trackFileUrl = await singlePublicFileUpload(req.file);
+        //need to add trackFileUrl to Track model and the build below
+
+    const track = await Track.build({
+        name, creatorId, albumId, languageId, topicId
+    });
+
+    //To Do: handle redirection? gotta check on that
+}));
 
 module.exports = router;

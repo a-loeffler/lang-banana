@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 
 import sessionReducer from './session';
 import tracksReducer from './tracks';
+import metaReducer from './meta';
 
 let enhancer;
 
@@ -21,6 +22,7 @@ if (process.env.NODE_ENV === 'production') {
 const rootReducer = combineReducers({
     session: sessionReducer,
     tracksList: tracksReducer,
+    meta: metaReducer,
 
 });
 

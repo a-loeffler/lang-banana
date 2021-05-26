@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 
 
 const GET_TRACKS = "tracks/getTracks";
+const POST_TRACK = "tracks/postTrack";
 
 
 
@@ -13,6 +14,12 @@ const getTracks = (trackData) => {
     }
 }
 
+const postTrack = (trackData) => {
+    return {
+        type: POST_TRACK,
+        payload: trackData
+    }
+}
 
 
 export const fetchTracks = () => async (dispatch) => {
@@ -26,6 +33,15 @@ export const fetchTracks = () => async (dispatch) => {
 
 
 }
+
+
+export const postNewTrack = () => async (dispatch) => {
+
+    const response = await fetch("/api/tracks", {
+
+    })
+}
+
 
 
 const initialState = {};
