@@ -6,6 +6,7 @@
     grid-template-columns: 10% max-content max-content max-content 1fr 10%;
     grid-template-rows: 1fr;
     position: fixed;
+    z-index: 2;
 }
 
 .logo-container {

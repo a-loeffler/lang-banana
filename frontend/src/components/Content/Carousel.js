@@ -47,7 +47,7 @@ const Carousel = ({carouselTitle, list}) => {
 
 
     return (
-        <div>
+        <div className="content-carousel-container">
             <h2 className="content-carousel-title">{carouselTitle || "Content Title"}</h2>
             <div className="content-carousel">
                 {slidesToDisplay.map((track, index) => <MediaCard key={index} title={track.name} groupNo={1} artist={track.User.userName} albumArtUrl={track.Album.coverArtUrl} />)}

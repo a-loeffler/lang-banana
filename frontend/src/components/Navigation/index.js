@@ -38,7 +38,7 @@ const Navigation = ({ isLoaded }) => {
                 </NavLink>
             </div>
             <div className="buttons-container">
-                <NavBarButton text={"Home"} color={"blue"}/>
+                <NavLink to="/media"><NavBarButton text={"Home"} color={"blue"}/></NavLink>
                 <NavBarButton text={"Stream"} color={"gray"}/>
                 <NavBarButton text={"Library"} color={"gray"}/>
             </div>
