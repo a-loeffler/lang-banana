@@ -19,7 +19,7 @@ const Content = () => {
 
     useEffect(() => {
         dispatch(fetchTracks());
-    }, [])
+    }, [dispatch])
 
     const tracks = useSelector(state => state.tracksList.tracks);
 

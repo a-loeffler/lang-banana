@@ -35,7 +35,7 @@ export const fetchTracks = () => async (dispatch) => {
 }
 
 
-export const postNewTrack = () => async (dispatch) => {
+export const postNewTrack = (trackData) => async (dispatch) => {
 
     const response = await fetch("/api/tracks", {
 

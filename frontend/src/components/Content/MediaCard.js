@@ -10,7 +10,7 @@ const MediaCard = ({ title, artist, groupNo, albumArtUrl }) => {
     return (
         <div className={`media-card-container media-group-${groupNo}`}>
             <div className="media-card-image">
-                <img className="albumArt" src={albumArtUrl} />
+                <img className="albumArt" src={albumArtUrl} alt="album cover art"/>
             </div>
             <div className="media-card-description">
                 <h3 className="media-card-title">{title}</h3>

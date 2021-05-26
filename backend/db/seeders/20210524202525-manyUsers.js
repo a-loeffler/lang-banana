@@ -60,6 +60,12 @@ module.exports = {
         hashedPassword: bcrypt.hashSync('sunflowerZ123!'),
         avatarUrl: 'https://i.ibb.co/xLSPhDF/avatar7.png',
       },
+      {
+        email: 'default@lang-banana.com',
+        userName: 'Various Artists',
+        hashedPassword: bcrypt.hashSync('nobody!HerebutUSch1ckens'),
+        avatarUrl: 'https://i.ibb.co/XSSZnYp/albumimggeneric.png'
+      }
     ], {});
   },
 

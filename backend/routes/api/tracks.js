@@ -65,6 +65,16 @@ const validateUpload = [
       .exists({ checkFalsy: true })
       .isLength({ min: 4 })
       .withMessage('Please provide a name for your track with at least 4 characters.'),
+    check('userId')
+      .exists({ checkFalsy: true })
+      .withMessage('Users cannot upload a track unless signed in.'),
+    check('languageId')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a language for your track.'),
+    check('topicId')
+      .exists({ checkFalsy: true })
+      .withMessage('Please provide a topic for your track.'),
+
     handleValidationErrors,
 ];
 

@@ -66,6 +66,12 @@ module.exports = {
         name: "Let's be friends",
         coverArtUrl: 'https://i.ibb.co/VmJf7gB/albumimg2.png',
       },
+      {
+        creatorId: 13,
+        languageId: 25,
+        topicId: 26,
+        coverArtUrl: 'https://i.ibb.co/XSSZnYp/albumimggeneric.png',
+      }
     ], {});
   },
 

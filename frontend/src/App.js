@@ -12,7 +12,7 @@ import SignUpFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
 
 import Content from './components/Content';
-import Carousel from './components/Content/Carousel';
+import TrackUploadFormPage from './components/TrackUploadFormPage';
 
 function App() {
   const dispatch = useDispatch()
@@ -37,8 +37,8 @@ function App() {
             <Route path="/media">
               <Content />
             </Route>
-            <Route path="/carousel">
-              <Carousel />
+            <Route path="/upload">
+              <TrackUploadFormPage />
             </Route>
             <Route path="/login">
               <LoginFormPage />

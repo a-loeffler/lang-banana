@@ -4,7 +4,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, Album } = require('../../db/models');
 
 const router = express.Router();
 
@@ -44,5 +44,17 @@ router.post('/', validateSignup, asyncHandler(async (req, res) => {
     return res.json({ user, });
 }));
 
+
+
+router.get('/:id(\\d+)/albums', asyncHandler(async (req, res) => {
+
+
+  const userId = req.params.id;
+
+  const userAlbums = await Album.findAll( { where: { creatorId: userId } } );
+
+  return res.json({ userAlbums })
+
+}));
 
 module.exports = router;

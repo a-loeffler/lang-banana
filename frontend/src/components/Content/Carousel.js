@@ -6,24 +6,14 @@ import './Content.css';
 
 const Carousel = ({carouselTitle, list}) => {
 
-    // const mockData = {title: "Annyeonghaseyo", artist: ""};
-
-
-
-    console.log("List for carousel:  ", list)
-
     const [slidePosition, setSlidePosition] = useState(0);
 
     const [slidesToDisplay, setSlidesToDisplay] = useState([]);
 
-    // let slidesToDisplay = [];
 
     useEffect(() => {
 
-        // console.log("slidePosition: ", slidePosition)
         let displaySlides = list.slice(slidePosition, slidePosition + 4);
-
-        // console.log("display slides:  ", displaySlides);
 
         setSlidesToDisplay(displaySlides);
 

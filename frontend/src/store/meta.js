@@ -16,7 +16,7 @@ export const fetchMeta = () => async (dispatch) => {
     dispatch(getMeta(data));
 };
 
-const initialState = {};
+const initialState = {languages: [], topics: []};
 
 const metaReducer = (state = initialState, action) => {
     switch (action.type) {

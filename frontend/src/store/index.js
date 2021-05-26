@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import tracksReducer from './tracks';
 import metaReducer from './meta';
+import userReducer from './user';
 
 let enhancer;
 
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
     session: sessionReducer,
     tracksList: tracksReducer,
     meta: metaReducer,
+    user: userReducer,
 
 });
 
