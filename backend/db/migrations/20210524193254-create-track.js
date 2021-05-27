@@ -32,6 +32,10 @@ module.exports = {
         type: Sequelize.STRING(255),
         allowNull: false,
       },
+      trackFileUrl: {
+        type: Sequelize.STRING(255),
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

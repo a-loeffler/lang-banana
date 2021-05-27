@@ -88,3 +88,15 @@
     background-color: #ffee00;
     color: #2c2c2c;
 }
+
+.user-button-container {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+.user-button {
+    background-image: url('../../user-icon-gray.svg');
+    background-size: cover;
+    height: 100%;
+}

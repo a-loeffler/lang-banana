@@ -39,15 +39,18 @@ export const postNewTrack = (newTrackData) => async (dispatch) => {
 
     const {name, languageId, topicId, albumId, userId, file} = newTrackData;
 
+    console.log(name, languageId, topicId, albumId, userId,)
+
     const formData = new FormData();
 
     formData.append("name", name);
     formData.append("languageId", languageId);
     formData.append("topicId", topicId);
-    formData.append("albumId", albumId);
+    if (albumId) formData.append("albumId", albumId);
     formData.append("userId", userId);
 
-    formData.append("file", file);
+    formData.append("mediaFile", file);
+
 
     const response = await csrfFetch("/api/tracks", {
         method: "POST",
@@ -59,7 +62,9 @@ export const postNewTrack = (newTrackData) => async (dispatch) => {
 
     const data = await response.json();
 
-    dispatch(postTrack(data));
+    console.log(data)
+
+    // dispatch(postTrack(data));
 
 }
 

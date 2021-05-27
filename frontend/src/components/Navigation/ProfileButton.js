@@ -32,9 +32,9 @@ const ProfileButton = ({user}) => {
     };
 
     return (
-        <div>
-            <button onClick={e => dropDownAction(e)}>
-                <i className="fas fa-user"></i>
+        <div className="user-button-container">
+            <button className="user-button" onClick={e => dropDownAction(e)}>
+                <img className="user-icon" src="../../user-icon-gray.svg" />
             </button>
             {showMenu && (
                 <div className="profile-dropdown-menu">

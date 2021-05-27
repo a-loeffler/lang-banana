@@ -24,6 +24,13 @@ module.exports = (sequelize, DataTypes) => {
         len: [4, 255],
       },
     },
+    trackFileUrl: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [4, 255],
+      },
+    },
   }, {});
   Track.associate = function(models) {
     // associations can be defined here
