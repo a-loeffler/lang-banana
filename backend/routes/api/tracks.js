@@ -78,7 +78,7 @@ const validateUpload = [
 ];
 
 // router.post("/", singleMulterUpload("track"), validateUpload, asyncHandler(async (req, res) => {
-router.post("/", singleMulterUpload("track"), asyncHandler(async (req, res) => {
+router.post("/", singleMulterUpload("file"), asyncHandler(async (req, res) => {
 
     console.log("Body:  ", req.body);
     let {name, languageId, topicId, albumId, userId} = req.body;
@@ -91,6 +91,7 @@ router.post("/", singleMulterUpload("track"), asyncHandler(async (req, res) => {
 
     // Step 3: Upload Track and get url
     const trackFileUrl = await singlePublicFileUpload(req.file);
+    console.log(trackFileUrl);
     //     //need to add trackFileUrl to Track model and the build below
 
     // const track = await Track.build({
@@ -101,5 +102,14 @@ router.post("/", singleMulterUpload("track"), asyncHandler(async (req, res) => {
 
     res.json({})
 }));
+
+
+router.get('/:id(\\d+)/', asyncHandler(async (req, res) => {
+    const trackIdToFind =  req.params.id;
+
+    const track = await db.Track.findByPk(trackIdToFind, {include: [db.TrackLike, db.User, db.Album, db.Language, db.Topic]})
+
+    res.json({ track });
+}))
 
 module.exports = router;

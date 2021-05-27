@@ -10,6 +10,7 @@ import './index.css';
 import LoginFormPage from './components/LoginFormPage';
 import SignUpFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
+import MediaPlayer from './components/MediaPlayer';
 
 import Content from './components/Content';
 import TrackUploadFormPage from './components/TrackUploadFormPage';
@@ -18,6 +19,7 @@ function App() {
   const dispatch = useDispatch()
 
   const [isLoaded, setIsLoaded] = useState(false);
+  const [playingMedia, setPlayingMedia] = useState(true);
 
   useEffect(() => {
     dispatch(fetchMeta())
@@ -47,6 +49,7 @@ function App() {
               <SignUpFormPage />
             </Route>
           </Switch>
+          {playingMedia && <MediaPlayer />}
         </div>
         <div className="display-side-space" />
       </div>

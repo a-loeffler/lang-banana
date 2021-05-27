@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.media-player-container {
+    position: absolute;
+    bottom: 90%;
+    display: grid;
+    grid-template-columns: 10% 1fr 10%;
+    grid-template-rows: 60px;
+}
+
+.main-space {
+    margin-left: 10%;
+    background-color: pink;
+    height: 60px;
+}
+
+.media-player {
+    display: none;
+}
+
+.media-player-control-button {
+    height: 40px;
+}
+
+.media-player-controls-img {
+    height: 39px;
+}

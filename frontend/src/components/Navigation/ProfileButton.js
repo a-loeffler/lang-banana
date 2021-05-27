@@ -6,11 +6,18 @@ import './Navigation.css';
 const ProfileButton = ({user}) => {
     const dispatch = useDispatch();
 
+    const grayIcon = "/images/user-icon-gray.svg";
+    const yellowIcon = "/images/user-icon.svg";
+
     const [showMenu, setShowMenu] = useState(false);
+    const [imgSrc, setImgSrc] = useState(grayIcon);
+
 
     const dropDownAction = (e) => {
         if (showMenu === false) setShowMenu(true);
-
+        if (imgSrc === grayIcon) {
+            setImgSrc(yellowIcon)
+        }
         return;
     }
 
@@ -20,6 +27,8 @@ const ProfileButton = ({user}) => {
         const closeMenu = () => {
           setShowMenu(false);
         };
+
+        setImgSrc(yellowIcon)
 
         document.addEventListener('click', closeMenu);
 
@@ -33,16 +42,18 @@ const ProfileButton = ({user}) => {
 
     return (
         <div className="user-button-container">
-            <button className="user-button" onClick={e => dropDownAction(e)}>
-                <img className="user-icon" src="../../user-icon-gray.svg" />
+            <h2 className="user-welcome">Welcome, {user.userName}</h2>
+            <button className="user-button" onClick={e => dropDownAction(e)} onMouseEnter={() => setImgSrc(yellowIcon)} onMouseLeave={() => setImgSrc(grayIcon)} >
+                <img className="user-icon" src={imgSrc}/>
             </button>
             {showMenu && (
                 <div className="profile-dropdown-menu">
-                    <ul>
-                        <li>{user.username}</li>
+                    <ul className="profile-dropdown-choices">
+                        <li>{user.userName}</li>
                         <li>{user.email}</li>
+                        <li>Your Profile</li>
                         <li>
-                            <button onClick={logout}>Log Out</button>
+                            <button className="user-logout-button" onClick={logout}>Log Out</button>
                         </li>
                     </ul>
                 </div>

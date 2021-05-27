@@ -49,7 +49,7 @@ export const postNewTrack = (newTrackData) => async (dispatch) => {
     if (albumId) formData.append("albumId", albumId);
     formData.append("userId", userId);
 
-    formData.append("mediaFile", file);
+    formData.append("file", file);
 
 
     const response = await csrfFetch("/api/tracks", {
