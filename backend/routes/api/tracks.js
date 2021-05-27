@@ -77,8 +77,8 @@ const validateUpload = [
     handleValidationErrors,
 ];
 
-// router.post("/", singleMulterUpload("track"), validateUpload, asyncHandler(async (req, res) => {
-router.post("/", singleMulterUpload("file"), asyncHandler(async (req, res) => {
+router.post("/", singleMulterUpload("file"), validateUpload, asyncHandler(async (req, res) => {
+// router.post("/", singleMulterUpload("file"), asyncHandler(async (req, res) => {
 
     console.log("Body:  ", req.body);
     let {name, languageId, topicId, albumId, userId} = req.body;
@@ -91,7 +91,11 @@ router.post("/", singleMulterUpload("file"), asyncHandler(async (req, res) => {
 
     // Step 3: Upload Track and get url
     const trackFileUrl = await singlePublicFileUpload(req.file);
-    console.log(trackFileUrl);
+    const newTrack = await db.Track.create({
+      name, languageId, topicId, albumId, creatorId: userId, trackFileUrl
+    })
+
+    console.log(newTrack)
     //     //need to add trackFileUrl to Track model and the build below
 
     // const track = await Track.build({
@@ -100,7 +104,7 @@ router.post("/", singleMulterUpload("file"), asyncHandler(async (req, res) => {
 
     //To Do: handle redirection? gotta check on that
 
-    res.json({})
+    res.json({newTrack})
 }));
 
 

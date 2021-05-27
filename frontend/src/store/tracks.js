@@ -64,7 +64,7 @@ export const postNewTrack = (newTrackData) => async (dispatch) => {
 
     console.log(data)
 
-    // dispatch(postTrack(data));
+    dispatch(postTrack(data));
 
 }
 
@@ -81,7 +81,7 @@ const tracksReducer = (state = initialState, action) => {
         }
         case POST_TRACK: {
             let newState = {...state};
-            newState.tracks[action.payload.id] = action.payload;
+            newState.tracks[action.payload.newTrack.id] = action.payload.newTrack;
             return newState;
         }
         default: {
