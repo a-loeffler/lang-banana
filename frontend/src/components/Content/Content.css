@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .content-carousel-container {
     position: relative;
     padding-bottom: 15px;
@@ -36,22 +42,23 @@
 }
 
 .media-card-image {
-    width: 90%;
-    background-color: blue;
-    height: 200px;
-    box-shadow: 0px 3px 3px 2px rgba(0, 0, 0, 0.2);
+    width: 75%;
+    background-color: transparent;
+    height: 250;
     margin-top: 5px;
 }
 
 .albumArt {
     width: 100%;
     height: auto;
+    box-shadow: 0px 3px 3px 2px rgba(0, 0, 0, 0.2);
 }
 
 .media-card-description {
-    background-color: yellow;
+    background-color: transparent;
     width: 90%;
     height: 35px;
+    padding-top: 10px;
     /* overflow: hidden;
     white-space: nowrap; */
 }
@@ -78,7 +85,7 @@
     height: 50px;
     width: 35px;
     position: absolute;
-    bottom: 115px;
+    bottom: 130px;
     border: 1px solid #333333;
     border-radius: 4px;
     color: #333333;
@@ -92,7 +99,7 @@
 }
 
 .direction-button:active {
-    bottom: 114px;
+    bottom: 129px;
 }
 
 .back {

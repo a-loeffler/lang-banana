@@ -19,7 +19,7 @@ function App() {
   const dispatch = useDispatch()
 
   const [isLoaded, setIsLoaded] = useState(false);
-  const [playingMedia, setPlayingMedia] = useState(true);
+  const [playingMedia, setPlayingMedia] = useState(false);
 
   useEffect(() => {
     dispatch(fetchMeta())

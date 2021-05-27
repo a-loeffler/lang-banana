@@ -3,6 +3,8 @@ import {useState, useEffect} from 'react';
 
 import {useHistory} from 'react-router-dom';
 
+import './TrackUploadForm.css';
+
 import { fetchAlbumsForOneUser } from '../../store/user';
 import { postNewTrack } from '../../store/tracks';
 
@@ -107,36 +109,42 @@ const TrackUploadFormPage = () => {
                 </ul>
             </div>
             <form className="track-upload-form" onSubmit={e => handleSubmit(e)}>
-                <div>
+                <div className="form-field">
                     <label htmlFor="track-name">Name of Track</label>
                     <input type="text" name="name" id="track-name" value={trackName} onChange={e => setTrackName(e.target.value)}></input>
                 </div>
-                <div>
+                <div className="form-field">
                     <label htmlFor="track-language">What language does your track teach?</label>
                     <select name="languageId" id="track-language" value={trackLanguageId} onChange={e => setTrackLanguageId(e.target.value)}>
                         {languages.map(language => <option key={language.id} value={language.id}>{language.name}</option>)}
                     </select>
                 </div>
-                <div>
+                <div className="form-field">
                     <label htmlFor="track-language">What topic does this track primarily focus on?</label>
                     <select name="topicId" id="track-topic" value={trackTopicId} onChange={e => setTrackTopicId(e.target.value)}>
                         {topics.map(topic => <option key={topic.id} value={topic.id}>{topic.name}</option>)}
                     </select>
                 </div>
-                <div>
+                <div className="form-field-other">
                     <p>Are you adding this track to a pre-existing album?</p>
-                    <input type="radio" id="track-album-switch-yes" name="track-album-switch" value={addToAlbum} onChange={() => setAddToAlbum("yes")} checked={addToAlbum === "yes"} ></input>
-                    <label htmlFor="track-album-switch-yes">Yes</label>
-                    <input type="radio" id="track-album-switch-no" name="track-album-switch" value={addToAlbum} onChange={() => setAddToAlbum("no")} checked={addToAlbum === "no"} ></input>
-                    <label htmlFor="track-album-switch-no">No</label>
-                    {addToAlbum === "yes" && chooseAlbum}
+                    <div className="radio-button-container">
+                        <div>
+                            <input type="radio" id="track-album-switch-yes" name="track-album-switch" value={addToAlbum} onChange={() => setAddToAlbum("yes")} checked={addToAlbum === "yes"} ></input>
+                            <label htmlFor="track-album-switch-yes">Yes</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="track-album-switch-no" name="track-album-switch" value={addToAlbum} onChange={() => setAddToAlbum("no")} checked={addToAlbum === "no"} ></input>
+                            <label htmlFor="track-album-switch-no">No</label>
+                        </div>
+                        {addToAlbum === "yes" && chooseAlbum}
+                    </div>
                 </div>
-                <div>
+                <div className="form-field">
                     <label htmlFor="track-file">Choose a track to upload</label>
                     <input type="file" id="track-file" accept="audio/*" name="audioFile" onChange={e => updateFile(e)}></input>
                 </div>
-                <div>
-                    <button type="submit" >Upload Track</button>
+                <div className="form-button-container">
+                    <button className="submit-button" type="submit" >Upload Track</button>
                 </div>
 
             </form>
