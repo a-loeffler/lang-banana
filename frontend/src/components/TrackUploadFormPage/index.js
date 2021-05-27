@@ -94,7 +94,7 @@ const TrackUploadFormPage = () => {
                 }
             });
 
-            // history.push("/tracks")
+            history.push("/media")
     };
 
 //track requirements: name, album, creator(i.e. user), languageId, topicId,
