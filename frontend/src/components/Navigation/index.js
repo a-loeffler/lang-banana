@@ -39,8 +39,8 @@ const Navigation = ({ isLoaded }) => {
             </div>
             <div className="buttons-container">
                 <NavLink to="/media"><NavBarButton text={"Home"} color={"blue"}/></NavLink>
-                <NavBarButton text={"Stream"} color={"gray"}/>
-                <NavBarButton text={"Library"} color={"gray"}/>
+                <NavLink to="/stream" ><NavBarButton text={"Stream"} color={"gray"}/></NavLink>
+                <NavLink to="/library" ><NavBarButton text={"Library"} color={"gray"}/></NavLink>
             </div>
             <div className="seachbar-container">
                 <SearchBar />

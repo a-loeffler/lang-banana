@@ -39,7 +39,7 @@ function App() {
             <Route path="/media">
               <Content />
             </Route>
-            <Route path="/upload">
+            <Route path="/tracks/upload">
               <TrackUploadFormPage />
             </Route>
             <Route path="/login">
@@ -47,6 +47,12 @@ function App() {
             </Route>
             <Route path="/signup">
               <SignUpFormPage />
+            </Route>
+            <Route path="/library">
+              <h3>Sorry, nothing here yet.  Check back soon!</h3>
+            </Route>
+            <Route path="/stream">
+              <h3>Sorry, nothing here yet.  Check back soon!</h3>
             </Route>
           </Switch>
           {playingMedia && <MediaPlayer />}

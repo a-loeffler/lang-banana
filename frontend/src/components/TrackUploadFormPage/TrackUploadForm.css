@@ -61,3 +61,11 @@
     grid-template-columns: 10% 10% 1fr;
     padding: 10px;
 }
+
+.form-errors {
+    min-height: 20px;
+}
+
+.form-error-list-item {
+    color: red;
+}

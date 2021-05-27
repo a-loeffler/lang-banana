@@ -49,13 +49,11 @@ const LoginFormPage = () => {
                     <div className="form-input-container">
                         <label className="form-label" htmlFor="login-credential">Name or Email: </label>
                         <input type="text" id="login-credential" className="login-credential form-input" value={credential} onChange={e => setCredential(e.target.value)}></input>
-                    </div>
-                    <div className="form-input-container">
-                    <label className="form-label" htmlFor="login-password">Password: </label>
-                    <input type="password" id="login-password" className="login-password form-input" value={password} onChange={e => setPassword(e.target.value)}></input>
+                        <label className="form-label" htmlFor="login-password">Password: </label>
+                        <input type="password" id="login-password" className="login-password form-input" value={password} onChange={e => setPassword(e.target.value)}></input>
                     </div>
                     <div className="form-button-container">
-                        <button className="form-button submit" type="submit">Log In</button>
+                        <button className="submit-button submit" type="submit">Log In</button>
                     </div>
                 </form>
             </div>

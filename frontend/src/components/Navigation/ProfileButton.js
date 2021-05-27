@@ -1,10 +1,12 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {useState, useEffect} from 'react';
+import {useHistory} from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
 
 const ProfileButton = ({user}) => {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const grayIcon = "/images/user-icon-gray.svg";
     const yellowIcon = "/images/user-icon.svg";
@@ -35,6 +37,13 @@ const ProfileButton = ({user}) => {
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
+    const goToUpload = (e) => {
+        e.preventDefault();
+        history.push('/tracks/upload')
+    }
+
+
+
     const logout = (e) => {
         e.preventDefault();
         dispatch(sessionActions.logout());
@@ -49,11 +58,12 @@ const ProfileButton = ({user}) => {
             {showMenu && (
                 <div className="profile-dropdown-menu">
                     <ul className="profile-dropdown-choices">
-                        <li>{user.userName}</li>
-                        <li>{user.email}</li>
+                        <li>
+                            <button className="user-menu-button" onClick={goToUpload}>Upload New Track</button>
+                        </li>
                         <li>Your Profile</li>
                         <li>
-                            <button className="user-logout-button" onClick={logout}>Log Out</button>
+                            <button className="user-menu-button" onClick={logout}>Log Out</button>
                         </li>
                     </ul>
                 </div>
