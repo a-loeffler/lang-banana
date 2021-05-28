@@ -31,6 +31,7 @@ const Content = () => {
         <div className="content-container">
             <div className="content-main-display">
                 {tracks && <Carousel carouselTitle={"Lessons: Top 10"} list={tracks.topTen}/>}
+                {tracks && <Carousel carouselTitle={"Lessons: New & Hot"} list={tracks.hot}/>}
                 {tracks && <Carousel carouselTitle={"Spanish"} list={tracks.spanish}/>}
                 {tracks && <Carousel carouselTitle={"Mandarin"} list={tracks.mandarin}/>}
                 {tracks && <Carousel carouselTitle={"German"} list={tracks.german}/>}

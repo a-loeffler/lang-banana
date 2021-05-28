@@ -21,8 +21,11 @@ router.get('/', asyncHandler(async (req, res) => {
     const allTracks = await db.Track.findAll(
         {
             include: [db.TrackLike, db.User, db.Album, db.Language, db.Topic],
+            sort: [db.Track.createdAt]
         }
     )
+
+    const hot = allTracks.slice(allTracks[allTracks.length - 20])
 
     allTracks.sort(function (a, b) {
         return  b.TrackLikes.length - a.TrackLikes.length;
@@ -45,7 +48,7 @@ router.get('/', asyncHandler(async (req, res) => {
 
     //create a big object with keys related to what will go in each carousel...
     // const bigFetchObject = {topFifty, hot, spanish, mandarin, german, trendingUsers}
-    res.json({topTen, spanish, mandarin, german, english, korean, conversation})
+    res.json({topTen, hot, spanish, mandarin, german, english, korean, conversation})
 
 
 }));
@@ -80,11 +83,12 @@ const validateUpload = [
 router.post("/", singleMulterUpload("file"), validateUpload, asyncHandler(async (req, res) => {
 // router.post("/", singleMulterUpload("file"), asyncHandler(async (req, res) => {
 
-    console.log("Body:  ", req.body);
     let {name, languageId, topicId, albumId, userId} = req.body;
 
 
-    if (!albumId) console.log("No Album Info; Please Create an Album!")
+    if (!albumId) {
+      albumId = 10
+    };
     // Step 1: If no albumId to add to, create a generic Album and get its id
 
     // Step 2: Begin building the Track
@@ -96,13 +100,6 @@ router.post("/", singleMulterUpload("file"), validateUpload, asyncHandler(async 
     })
 
     console.log(newTrack)
-    //     //need to add trackFileUrl to Track model and the build below
-
-    // const track = await Track.build({
-    //     name, creatorId, albumId, languageId, topicId
-    // });
-
-    //To Do: handle redirection? gotta check on that
 
     res.json({newTrack})
 }));

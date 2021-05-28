@@ -30,18 +30,19 @@ Spanish Platano:
 https://lang-banana.s3.amazonaws.com/1622136086685.mp3
 
 German Wie Gehts:
-
+https://lang-banana.s3.amazonaws.com/1622158439401.m4a
 
 Hindi Good Morning:
-
+https://lang-banana.s3.amazonaws.com/1622158542405.mp3
 
 It's a Banana:
-
+https://lang-banana.s3.amazonaws.com/1622158747001.m4a
 
 Klingon Vocabulary
-
+https://lang-banana.s3.amazonaws.com/1622155919748.mp3
 
 Korean Chuseok:
-
+https://lang-banana.s3.amazonaws.com/1622158918336.mp3
 
 Mandarin Restaurant:
+https://lang-banana.s3.amazonaws.com/1622158970974.mp3
