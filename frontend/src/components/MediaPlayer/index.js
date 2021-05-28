@@ -12,6 +12,8 @@ const MediaPlayer = () => {
     const [controlIcon, setControlIcon] = useState('/images/play.svg');
     const [playing, setPlaying] = useState(false);
     const [width, setWidth] = useState(0);
+    const [currentPlayTime, setCurrentPlayTime] = useState(0);
+    const [maxPlayTime, setMaxPlayTime] = useState(0.001);
 
     // function playAudio() {
     //     audioRef.current.play();
@@ -30,11 +32,17 @@ const MediaPlayer = () => {
         }
     };
 
+
+
     const timeEffects = () => {
         const maxTime = audioRef.current.duration;
+        setMaxPlayTime(maxTime);
+
         const currentTime = audioRef.current.currentTime;
 
-        const timePercent = Math.floor(currentTime / maxTime);
+        setCurrentPlayTime(currentTime);
+
+        const timePercent = Math.floor((currentTime / maxTime) * 100);
         setWidth(timePercent);
     }
 
@@ -60,6 +68,7 @@ const MediaPlayer = () => {
                 <div className="progress-bar-container">
                     <div className="progress-bar" style={{width: `${width}%`}}></div>
                 </div>
+                <span className="time-display">{`${currentPlayTime.toFixed(2)} / ${maxPlayTime.toFixed(2)}`}</span>
             </div>
             <div></div>
 
