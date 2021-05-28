@@ -6,7 +6,7 @@
     grid-template-columns: 10% max-content max-content max-content 1fr 10%;
     grid-template-rows: 1fr;
     position: fixed;
-    z-index: 2;
+    z-index: 3;
 }
 
 .logo-container {
@@ -122,7 +122,7 @@
     list-style-type: none;
     font-family:Arial, Helvetica, sans-serif;
     font-size: 14px;
-    z-index: 3;
+    z-index: 2;
     width: 200px;
     cursor: pointer;
 }

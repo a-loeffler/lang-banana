@@ -1,51 +1,68 @@
 import {useState, useEffect, useRef} from 'react';
 
-const MediaPlayer = ({tracks}) => {
+import './MediaPlayer.css'
 
+const MediaPlayer = () => {
 
-    const [trackIndex, setTrackIndex] = useState(0);
-    const [trackProgress, setTrackProgress] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(false);
+    const audioRef = useRef(null);
 
+    const playIcon = '/images/play.svg'
+    const pauseIcon = '/images/pause.svg';
 
-    const audioRef = useRef(new Audio('https://lang-banana.s3.amazonaws.com/1622136086685.mp3'));
+    const [controlIcon, setControlIcon] = useState('/images/play.svg');
+    const [playing, setPlaying] = useState(false);
+    const [width, setWidth] = useState(0);
 
-    const intervalRef = useRef();
-    const isReady = useRef(false);
+    // function playAudio() {
+    //     audioRef.current.play();
+    // }
+    // const audioObj = new Audio('https://lang-banana.s3.amazonaws.com/1622155919748.mp3')
 
+    const buttonAction = () => {
+        if (playing === false) {
+            audioRef.current.play();
+            setControlIcon(pauseIcon);
+            setPlaying(true);
+        } else {
+            audioRef.current.pause();
+            setControlIcon(playIcon);
+            setPlaying(false);
+        }
+    };
 
-    const { duration } = audioRef.current;
+    const timeEffects = () => {
+        const maxTime = audioRef.current.duration;
+        const currentTime = audioRef.current.currentTime;
 
+        const timePercent = Math.floor(currentTime / maxTime);
+        setWidth(timePercent);
+    }
 
-    const audioElement = new Audio('https://lang-banana.s3.amazonaws.com/1622136086685.mp3');
+    const endPlay = () => {
+        setPlaying(false);
+        setControlIcon(playIcon);
 
-
-
+    }
 
     return (
         <div className="media-player-container">
-            <div className="side-space"></div>
+            <div></div>
             <div className="main-space">
-                <div className="media-player-controls">
-                    <button id="play" className="media-player-control-button">
-                        <img className="media-player-controls-img" src="/images/play.svg"></img>
-                    </button>
-                    <button id="pause" className="media-player-control-button">
-                        <img className="media-player-controls-img" src="/images/pause.svg"></img>
-                    </button>
-                </div>
                 <audio
-                className="media-player"
-                type="audio/mpeg"
-                src="https://lang-banana.s3.amazonaws.com/1622136086685.mp3">
-                    Your browser does not support the
-                    <code>audio</code> element.
+                    ref={audioRef}
+                    src='https://lang-banana.s3.amazonaws.com/1622155919748.mp3'
+                    onEnded={() => {endPlay()}}
+                    onTimeUpdate={() => timeEffects()}>
                 </audio>
-                <img className="media-player-album-art"></img>
-                <h2 className="media-player-track-name"></h2>
-                <h2 className="media-player-creator-name"></h2>
+                <button className="media-control"  onClick={() => {buttonAction()}}>
+                    <img src={controlIcon}></img>
+                </button>
+                <div className="progress-bar-container">
+                    <div className="progress-bar" style={{width: `${width}%`}}></div>
+                </div>
             </div>
-            <div className="side-space"></div>
+            <div></div>
+
         </div>
     )
 }

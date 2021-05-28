@@ -6,27 +6,46 @@
 
 
 .media-player-container {
+    width: 100vw;
     position: absolute;
-    bottom: 90%;
+    bottom: 0;
     display: grid;
     grid-template-columns: 10% 1fr 10%;
-    grid-template-rows: 60px;
+    grid-template-rows: 50px;
+    background-color: #F2F2F2;
 }
 
 .main-space {
     margin-left: 10%;
     background-color: pink;
-    height: 60px;
+    display: flex;
+    align-items: center;
 }
 
-.media-player {
-    display: none;
-}
 
-.media-player-control-button {
+.media-control {
     height: 40px;
+    border: none;
+    background-color: transparent;
+    margin-left: 10px;
 }
 
-.media-player-controls-img {
-    height: 39px;
+#play {
+    height: 75%;
+}
+
+#pause {
+    height: 60%;
+}
+
+.progress-bar-container {
+    width: 50%;
+    height: 1px;
+    background-color: black;
+    margin-left: 20px;
+}
+
+.progress-bar {
+    height: 1px;
+    background-color: #FECD07;
 }

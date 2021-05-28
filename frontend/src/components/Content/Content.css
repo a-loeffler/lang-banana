@@ -85,7 +85,7 @@
     height: 50px;
     width: 35px;
     position: absolute;
-    bottom: 130px;
+    bottom: 135px;
     border: 1px solid #333333;
     border-radius: 4px;
     color: #333333;
@@ -99,7 +99,7 @@
 }
 
 .direction-button:active {
-    bottom: 129px;
+    bottom: 134px;
 }
 
 .back {

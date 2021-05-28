@@ -21,11 +21,11 @@ router.get('/', asyncHandler(async (req, res) => {
     const allTracks = await db.Track.findAll(
         {
             include: [db.TrackLike, db.User, db.Album, db.Language, db.Topic],
-            sort: [db.Track.createdAt]
+            order: [['updatedAt', 'DESC']]
         }
     )
 
-    const hot = allTracks.slice(allTracks[allTracks.length - 20])
+    const hot = allTracks.slice(0, 20);
 
     allTracks.sort(function (a, b) {
         return  b.TrackLikes.length - a.TrackLikes.length;

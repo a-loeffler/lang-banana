@@ -19,7 +19,7 @@ function App() {
   const dispatch = useDispatch()
 
   const [isLoaded, setIsLoaded] = useState(false);
-  const [playingMedia, setPlayingMedia] = useState(false);
+  const [playingMedia, setPlayingMedia] = useState(true);
 
   useEffect(() => {
     dispatch(fetchMeta())
@@ -55,9 +55,9 @@ function App() {
               <h3>Sorry, nothing here yet.  Check back soon!</h3>
             </Route>
           </Switch>
-          {playingMedia && <MediaPlayer />}
         </div>
         <div className="display-side-space" />
+        {playingMedia && <MediaPlayer />}
       </div>
     </>
   );
