@@ -35,6 +35,9 @@ function App() {
       setPlayingMedia(nowPlaying);
       console.log(playingMedia);
       setIsPlaying(true);
+    } else {
+      setPlayingMedia(null);
+      setIsPlaying(false);
     }
   }, [dispatch, nowPlaying, playingMedia])
 

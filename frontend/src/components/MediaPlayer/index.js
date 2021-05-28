@@ -1,8 +1,12 @@
 import {useState, useEffect, useRef} from 'react';
+import {useDispatch} from 'react-redux';
+
+import {playSelectedTrack} from '../../store/tracks';
 
 import './MediaPlayer.css'
 
 const MediaPlayer = ({playTrackData}) => {
+    const dispatch = useDispatch();
 
     const audioRef = useRef(null);
 
@@ -52,6 +56,10 @@ const MediaPlayer = ({playTrackData}) => {
 
     }
 
+    const closeAction = () => {
+        dispatch(playSelectedTrack({}))
+    }
+
     return (
         <div className="media-player-container">
             <div></div>
@@ -74,8 +82,11 @@ const MediaPlayer = ({playTrackData}) => {
                     <span className="track-info-title" >{playTrackData.title}</span>
                     <span className="track-info-creator" >{playTrackData.artist}</span>
                 </div>
+
             </div>
-            <div></div>
+            <div className="media-close-space">
+                <button className="media-player-closer" onClick={() => {closeAction()}}>x</button>
+            </div>
 
         </div>
     )
