@@ -7,7 +7,7 @@
 
 .media-player-container {
     width: 100vw;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     display: grid;
     grid-template-columns: 10% 1fr 10%;
@@ -24,7 +24,7 @@
 
 
 .media-control {
-    height: 40px;
+    height: 35px;
     border: none;
     background-color: transparent;
     margin-left: 10px;
@@ -41,7 +41,7 @@
 .progress-bar-container {
     width: 50%;
     height: 1px;
-    background-color: black;
+    background-color: #464646;
     margin-left: 20px;
 }
 
@@ -51,6 +51,32 @@
 }
 
 .time-display {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+    color: #464646;
+}
+
+.track-info-img {
+    height: 30px;
+    width: 30px;
+    margin-left: 20px;
+}
+
+.track-info-display {
+    display: flex;
+    align-items: center;
+}
+
+.track-info-title {
+    font-size: 0.8rem;
+    color: #464646;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+}
+
+.track-info-creator {
+    font-size: 0.6rem;
+    color: #6b6b6b;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 10px;
 }

@@ -23,8 +23,7 @@ const Content = () => {
 
     const tracks = useSelector(state => state.tracksList.tracks);
 
-    console.log(tracks)
-
+    
 
 
     return (

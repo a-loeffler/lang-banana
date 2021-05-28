@@ -1,10 +1,13 @@
 import {useState} from 'react';
+import {useDispatch} from 'react-redux';
 
-
+import { playSelectedTrack } from '../../store/tracks';
 import './Content.css';
 
 
-const MediaCard = ({ title, artist, groupNo, albumArtUrl }) => {
+const MediaCard = ({ title, artist, groupNo, albumArtUrl, trackFileUrl }) => {
+
+    const dispatch = useDispatch();
 
     const [hoverState, setHoverState] = useState("hidden")
 
@@ -16,12 +19,17 @@ const MediaCard = ({ title, artist, groupNo, albumArtUrl }) => {
         setHoverState("hidden");
     }
 
+    const mediaPlayerActions = () => {
+        const playTrackData = {trackFileUrl, albumArtUrl, title, artist};
+        dispatch(playSelectedTrack(playTrackData));
+    }
+
     return (
         <div className={`media-card-container media-group-${groupNo}`}>
             <div className="media-card-image">
                 <div className="hover-container" onMouseEnter={e => hoverOn(e)} onMouseLeave={e => hoverOff(e)}>
                     <img className="albumArt" src={albumArtUrl} alt="album cover art"/>
-                    <img className={`hover-play-img ${hoverState}`} src="/images/hoverplay.svg"></img>
+                    <img className={`hover-play-img ${hoverState}`} src="/images/hoverplay.svg" onClick={() => {mediaPlayerActions()}}></img>
                 </div>
             </div>
             <div className="media-card-description">

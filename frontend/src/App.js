@@ -1,6 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import * as sessionActions from './store/session';
 import { fetchMeta } from './store/meta'
@@ -16,15 +16,27 @@ import Content from './components/Content';
 import TrackUploadFormPage from './components/TrackUploadFormPage';
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
+  const nowPlaying = useSelector(state => state.tracksList.nowPlaying);
+
+
+  // const playTrackData = useSelector(state => state.trackList.nowPlaying)
 
   const [isLoaded, setIsLoaded] = useState(false);
-  const [playingMedia, setPlayingMedia] = useState(true);
+  const [playingMedia, setPlayingMedia] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     dispatch(fetchMeta())
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-  }, [dispatch])
+
+    if (nowPlaying.trackFileUrl) {
+      setPlayingMedia(nowPlaying);
+      console.log(playingMedia);
+      setIsPlaying(true);
+    }
+  }, [dispatch, nowPlaying, playingMedia])
 
   return isLoaded && (
     <>
@@ -57,7 +69,7 @@ function App() {
           </Switch>
         </div>
         <div className="display-side-space" />
-        {playingMedia && <MediaPlayer />}
+        {playingMedia && <MediaPlayer playTrackData={playingMedia}/>}
       </div>
     </>
   );

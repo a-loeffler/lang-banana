@@ -2,7 +2,7 @@ import {useState, useEffect, useRef} from 'react';
 
 import './MediaPlayer.css'
 
-const MediaPlayer = () => {
+const MediaPlayer = ({playTrackData}) => {
 
     const audioRef = useRef(null);
 
@@ -58,7 +58,7 @@ const MediaPlayer = () => {
             <div className="main-space">
                 <audio
                     ref={audioRef}
-                    src='https://lang-banana.s3.amazonaws.com/1622155919748.mp3'
+                    src={playTrackData.trackFileUrl}
                     onEnded={() => {endPlay()}}
                     onTimeUpdate={() => timeEffects()}>
                 </audio>
@@ -69,6 +69,11 @@ const MediaPlayer = () => {
                     <div className="progress-bar" style={{width: `${width}%`}}></div>
                 </div>
                 <span className="time-display">{`${currentPlayTime.toFixed(2)} / ${maxPlayTime.toFixed(2)}`}</span>
+                <div className="track-info-display">
+                    <img className="track-info-img" src={playTrackData.albumArtUrl}></img>
+                    <span className="track-info-title" >{playTrackData.title}</span>
+                    <span className="track-info-creator" >{playTrackData.artist}</span>
+                </div>
             </div>
             <div></div>
 

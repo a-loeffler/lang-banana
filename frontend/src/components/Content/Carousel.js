@@ -40,7 +40,7 @@ const Carousel = ({carouselTitle, list}) => {
         <div className="content-carousel-container">
             <h2 className="content-carousel-title">{carouselTitle || "Content Title"}</h2>
             <div className="content-carousel">
-                {slidesToDisplay.map((track, index) => <MediaCard key={index} title={track.name} groupNo={1} artist={track.User.userName} albumArtUrl={track.Album.coverArtUrl} />)}
+                {slidesToDisplay.map((track, index) => <MediaCard key={index} title={track.name} groupNo={1} artist={track.User.userName} albumArtUrl={track.Album.coverArtUrl} trackFileUrl={track.trackFileUrl}/>)}
             </div>
             {slidePosition > 0 && <button id="backscroll" className="back direction-button" onClick={() => backButtonActions()}>◄</button>}
             <button id="frontscroll" className="forward direction-button" onClick={() => forwardButtonActions()}>►</button>

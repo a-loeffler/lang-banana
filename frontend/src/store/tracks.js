@@ -4,6 +4,7 @@ import { csrfFetch } from './csrf';
 
 const GET_TRACKS = "tracks/getTracks";
 const POST_TRACK = "tracks/postTrack";
+const PLAY_TRACK = "track/playTrack";
 
 
 
@@ -18,6 +19,13 @@ const postTrack = (trackData) => {
     return {
         type: POST_TRACK,
         payload: trackData
+    }
+}
+
+const playTrack = (playTrackData) => {
+    return {
+        type: PLAY_TRACK,
+        payload: playTrackData
     }
 }
 
@@ -62,15 +70,15 @@ export const postNewTrack = (newTrackData) => async (dispatch) => {
 
     const data = await response.json();
 
-    console.log(data)
-
     dispatch(postTrack(data));
 
 }
 
+export const playSelectedTrack = (playTrackData) => async (dispatch) => {
+    dispatch(playTrack(playTrackData))
+};
 
-
-const initialState = {};
+const initialState = {nowPlaying: {}};
 
 const tracksReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -82,6 +90,11 @@ const tracksReducer = (state = initialState, action) => {
         case POST_TRACK: {
             let newState = {...state};
             newState.tracks[action.payload.newTrack.id] = action.payload.newTrack;
+            return newState;
+        }
+        case PLAY_TRACK: {
+            let newState = {...state};
+            newState["nowPlaying"] = action.payload;
             return newState;
         }
         default: {
