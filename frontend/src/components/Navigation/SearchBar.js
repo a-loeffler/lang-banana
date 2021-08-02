@@ -13,7 +13,7 @@ const SearchBar = () => {
     }
 
     return (
-        <form className="seachbar-form" onSubmit={e => searchAction(e)}>
+        <form className="searchbar-form" onSubmit={e => searchAction(e)}>
                 <input type="text" className="searchbar-field" defaultValue="Search for a track, user or language..." /*value={searchText} onChange={e => setSearchText(e.target.value)}*/ ></input>
         </form>
     )

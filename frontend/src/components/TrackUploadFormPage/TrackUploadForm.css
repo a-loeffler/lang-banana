@@ -24,7 +24,7 @@
 
 .submit-button {
     background-color: #206082;
-    min-width: 300px;
+    
     margin: auto;
     color: #dcdcdc;
     font-family: Arial, Helvetica, sans-serif;
@@ -68,4 +68,86 @@
 
 .form-error-list-item {
     color: red;
+}
+
+
+
+@media screen and (max-width: 1100px) {
+    .form-input-container {
+        margin: auto;
+        grid-template-rows: max-content max-content;
+        grid-template-columns: 1fr;
+    }
+
+    .form-label {
+        text-align: left;
+        margin-left: 20px;
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .form-input {
+        width: 100%;
+        margin-left: 20px;
+    }
+}
+
+
+
+@media screen and (min-width: 1000px) {
+    .submit,
+    .submit-button {
+        background-color: #206082;
+        min-width: 300px;
+        margin: auto;
+        color: #dcdcdc;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 50px;
+        border: transparent;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 999px) {
+    .submit,
+    .submit-button {
+        background-color: #206082;
+        width: 90%;
+        margin: auto;
+        color: #dcdcdc;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 50px;
+        border: transparent;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .submit,
+    .submit-button {
+        width: 80%;
+        font-size: 14px;
+    }
+
+
+    .form-label {
+        font-size: 12px;
+    }
+
+    .form-input {
+        width: 100%;
+        margin-left: 20px;
+        font-size: 12px;
+    }
+
+    .form-input-container {
+        margin: 0;
+    }
+
+    .form-container {
+        width: 100%;
+    }
 }

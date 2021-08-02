@@ -6,6 +6,7 @@
 
 .content-carousel-container {
     position: relative;
+    height: max-content;
     padding-bottom: 15px;
     padding-top: 25px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.05);
@@ -32,7 +33,7 @@
 
 .media-card-container {
     border-radius: 5px;
-    height: 250px;
+    height: 18vw;
     background-color: transparent;
     display: flex;
     align-items: center;
@@ -85,7 +86,7 @@
     height: 50px;
     width: 35px;
     position: absolute;
-    bottom: 135px;
+    top: 36%;
     border: 1px solid #333333;
     border-radius: 4px;
     color: #333333;
@@ -99,7 +100,7 @@
 }
 
 .direction-button:active {
-    bottom: 134px;
+    top: 36.5%;
 }
 
 .back {
@@ -125,8 +126,80 @@
 
 .hover-play-img {
     position: absolute;
-    top: 50px;
-    left: 50px;
+    width: 40%;
+    top: 30%;
+    left: 30%;
     cursor: pointer;
     z-index: 2;
+}
+
+
+@media screen and (max-width: 500px) {
+    .content-container {
+        padding-top: 50px;
+    }
+
+    .direction-button {
+        height: 30px;
+        width: 20px;
+        font-size: 10px;
+        top: 42%;
+    }
+
+    .direction-button:active {
+        top: 43%;
+    }
+
+    .forward {
+        left: 88%
+    }
+
+    .content-carousel {
+        width: 90%;
+    }
+
+    .content-carousel-title {
+        font-size: 1.0rem;
+    }
+
+    .media-card-title {
+        font-size: 0.6rem;
+        position: relative;
+        top: -10px;
+    }
+
+    .media-card-artist {
+        font-size: 0.5rem;
+        position: relative;
+        top: -10px;
+    }
+}
+
+
+
+@media screen and (min-width: 501px) and (max-width: 810px) {
+
+    .direction-button {
+        height: 30px;
+        width: 20px;
+        font-size: 10px;
+        top: 40%;
+    }
+
+    .direction-button:active {
+        top: 40.5%;
+    }
+
+
+    .content-carousel-title {
+        font-size: 1.0rem;
+    }
+
+    .media-card-title {
+        font-size: 0.8rem;
+    }
+
+    .media-card-artist {
+        font-size: 0.6rem;
+    }
 }
