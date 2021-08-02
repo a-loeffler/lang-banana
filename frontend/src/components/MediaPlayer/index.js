@@ -13,8 +13,8 @@ const MediaPlayer = ({playTrackData}) => {
     const playIcon = '/images/play.svg'
     const pauseIcon = '/images/pause.svg';
 
-    const [controlIcon, setControlIcon] = useState('/images/play.svg');
-    const [playing, setPlaying] = useState(false);
+    const [controlIcon, setControlIcon] = useState('/images/pause.svg');
+    const [playing, setPlaying] = useState(true);
     const [width, setWidth] = useState(0);
     const [currentPlayTime, setCurrentPlayTime] = useState(0);
     const [maxPlayTime, setMaxPlayTime] = useState(0.001);
@@ -23,6 +23,14 @@ const MediaPlayer = ({playTrackData}) => {
     //     audioRef.current.play();
     // }
     // const audioObj = new Audio('https://lang-banana.s3.amazonaws.com/1622155919748.mp3')
+
+    useEffect(() => {
+        if (audioRef) {
+            audioRef.current.play();
+            setPlaying(true);
+            setControlIcon(pauseIcon);
+        }
+    }, [audioRef, playTrackData])
 
     const buttonAction = () => {
         if (playing === false) {
@@ -76,7 +84,7 @@ const MediaPlayer = ({playTrackData}) => {
                 <div className="progress-bar-container">
                     <div className="progress-bar" style={{width: `${width}%`}}></div>
                 </div>
-                <span className="time-display">{`${currentPlayTime.toFixed(2)} / ${maxPlayTime.toFixed(2)}`}</span>
+                <span className="time-display">{`${Math.floor(currentPlayTime.toFixed(2))}:${String((currentPlayTime - Math.floor(currentPlayTime)).toFixed(2)).split(".")[1]} / ${Math.floor(maxPlayTime.toFixed(2))}:${String((maxPlayTime - Math.floor(maxPlayTime)).toFixed(2)).split(".")[1]}`}</span>
                 <div className="track-info-display">
                     <img className="track-info-img" src={playTrackData.albumArtUrl}></img>
                     <span className="track-info-title" >{playTrackData.title}</span>
