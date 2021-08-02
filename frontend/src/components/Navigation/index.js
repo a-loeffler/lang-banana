@@ -31,24 +31,24 @@ const Navigation = ({ isLoaded }) => {
 
     return (
         <nav className="header-nav">
-            <div className="side-space" />
+            <div className="side-space side-space-l" />
             <div className="logo-container">
                 <NavLink exact to="/">
                     <img id="logo-img" alt="site logo" src="/images/langbanana-logo1.svg"></img>
                 </NavLink>
             </div>
-            <div className="buttons-container">
+            <div className="buttons-container site-buttons">
                 <NavLink to="/media"><NavBarButton text={"Home"} color={"blue"}/></NavLink>
                 <NavLink to="/stream" ><NavBarButton text={"Stream"} color={"gray"}/></NavLink>
                 <NavLink to="/library" ><NavBarButton text={"Library"} color={"gray"}/></NavLink>
             </div>
-            <div className="seachbar-container">
+            <div className="searchbar-container">
                 <SearchBar />
             </div>
-            <div className="buttons-container">
+            <div className="buttons-container user-buttons">
                 {isLoaded && navBarLinks}
             </div>
-            <div className="side-space" />
+            <div className="side-space side-space-r" />
         </nav>
     )
 }
