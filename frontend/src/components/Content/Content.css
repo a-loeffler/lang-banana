@@ -100,7 +100,7 @@
 }
 
 .direction-button:active {
-    bottom: 134px;
+    top: 36.5%;
 }
 
 .back {
@@ -146,6 +146,10 @@
         top: 42%;
     }
 
+    .direction-button:active {
+        top: 43%;
+    }
+
     .forward {
         left: 88%
     }
@@ -180,6 +184,10 @@
         width: 20px;
         font-size: 10px;
         top: 40%;
+    }
+
+    .direction-button:active {
+        top: 40.5%;
     }
 
 

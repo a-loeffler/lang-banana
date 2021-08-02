@@ -10,7 +10,6 @@ const NavBarButton = ({text, toLink, color, setActiveLink, activeLink }) => {
     }, [])
 
     useEffect(() => {
-        console.log(setActiveLink)
     }, [setActiveLink])
 
 
