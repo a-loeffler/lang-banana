@@ -90,6 +90,11 @@
     color: #2c2c2c;
 }
 
+.button-highlight {
+    box-shadow: 0 0px 2px 2px #4d4d4d;
+    filter: brightness(150%);
+}
+
 .user-button-container {
     display: flex;
     align-items: flex-end;
