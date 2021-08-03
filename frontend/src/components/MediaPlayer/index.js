@@ -79,14 +79,14 @@ const MediaPlayer = ({playTrackData}) => {
                     onTimeUpdate={() => timeEffects()}>
                 </audio>
                 <button className="media-control"  onClick={() => {buttonAction()}}>
-                    <img src={controlIcon}></img>
+                    <img src={controlIcon} alt=""></img>
                 </button>
                 <div className="progress-bar-container">
                     <div className="progress-bar" style={{width: `${width}%`}}></div>
                 </div>
                 <span className="time-display">{`${Math.floor(currentPlayTime.toFixed(2))}:${String((currentPlayTime - Math.floor(currentPlayTime)).toFixed(2)).split(".")[1]} / ${Math.floor(maxPlayTime.toFixed(2))}:${String((maxPlayTime - Math.floor(maxPlayTime)).toFixed(2)).split(".")[1]}`}</span>
                 <div className="track-info-display">
-                    <img className="track-info-img" src={playTrackData.albumArtUrl}></img>
+                    <img alt="Album Art" className="track-info-img" src={playTrackData.albumArtUrl}></img>
                     <span className="track-info-title" >{playTrackData.title}</span>
                     <span className="track-info-creator" >{playTrackData.artist}</span>
                 </div>

@@ -38,6 +38,10 @@ router.get('/:searchItems', asyncHandler(async (req, res) => {
     let userQueryObject = {where: {}}
     userQueryObject.where[Op.or] = [];
     userQueryObject.order = [['createdAt', 'DESC']];
+
+    let albumQueryObject = {where: {}}
+    albumQueryObject.where[Op.or] = [];
+    albumQueryObject.order = [['createdAt', 'DESC']];
     
     function trackSearch(trackQueryObject) {
         trackQueryObject.include = [{ model: Topic}, { model: Language }, {model: Album}]
@@ -68,10 +72,21 @@ router.get('/:searchItems', asyncHandler(async (req, res) => {
         return userQueryObject;
     }
 
+    function albumSearch(albumQueryObject) {
+
+        processedSearchItems3.forEach(word => {
+            albumQueryObject.where[Op.or].push({ name: { [Op.iLike]: `%${word}%`}})
+        })
+        
+        return albumQueryObject;
+    }
+
     const trackSearchResults = await Track.findAll(trackSearch(trackQueryObject))
     const userSearchResults = await User.findAll(userSearch(userQueryObject))
+    const albumSearchResults = await Album.findAll(albumSearch(albumQueryObject))
 
-    res.json({ query: { queryTracks: trackSearchResults, queryUsers: userSearchResults}})
+
+    res.json({ query: { queryTracks: trackSearchResults, queryUsers: userSearchResults, queryAlbums: albumSearchResults}})
 
 }))
 
