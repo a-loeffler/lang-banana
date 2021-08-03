@@ -159,7 +159,11 @@
     text-align: left;
 }
 
-
+@media screen and (min-width: 1800px) {
+    .searchbar-field {
+        width: 35vw;
+    }
+}
 
 @media screen and (min-width: 501px) and (max-width: 1550px) {
     .header-nav {

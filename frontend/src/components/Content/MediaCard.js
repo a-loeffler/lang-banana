@@ -29,7 +29,7 @@ const MediaCard = ({ title, artist, groupNo, albumArtUrl, trackFileUrl }) => {
             <div className="media-card-image">
                 <div className="hover-container" onMouseEnter={e => hoverOn(e)} onMouseLeave={e => hoverOff(e)}>
                     <img className="albumArt" src={albumArtUrl} alt="album cover art"/>
-                    <img className={`hover-play-img ${hoverState}`} src="/images/hoverplay.svg" onClick={() => {mediaPlayerActions()}}></img>
+                    <img className={`hover-play-img ${hoverState}`} alt="" src="/images/hoverplay.svg" onClick={() => {mediaPlayerActions()}}></img>
                 </div>
             </div>
             <div className="media-card-description">
