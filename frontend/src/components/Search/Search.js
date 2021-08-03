@@ -44,8 +44,8 @@ const Search = () => {
 
         }
         
-        console.log("Users: ", searchResultsUsers)
-        console.log("Albums: ", searchResultsAlbums[0]?.name)
+        // console.log("Users: ", searchResultsUsers)
+        // console.log("Albums: ", searchResultsAlbums[0]?.name)
         console.log("Tracks: ", searchResultsTracks)
 
     }, [searchResults, searchResultsAlbums, searchResultsTracks, searchResultsUsers]);
@@ -113,7 +113,7 @@ const Search = () => {
                 {searchResultsUsers.length === 0 && searchResultsTracks.length === 0 && searchResultsAlbums.length === 0 ? <h2>No Results Found</h2> : <h2 className="search-results-message">Found {searchResultsUsers.length} Users, {searchResultsAlbums.length} Albums, and {searchResultsTracks.length} Tracks</h2>}
                 {filter === "" && langFilter === "" && searchResultsUsers?.map((user, index) => <h2 key={index}>user - {user?.userName}</h2>)}
                 {filter === "" && langFilter === "" && searchResultsAlbums?.map((album, index) => <h2 key={index}>album - {album?.name}</h2>)}
-                {filter === "" && langFilter === "" && searchResultsTracks?.map((track, index) => <h2 key={index}>track - {track?.name}</h2>)}
+                {filter === "" && langFilter === "" && searchResultsTracks?.map((track, index) => <TrackSearchCard key={index} imageUrl={track.Album.coverArtUrl} title={track.name} artist={track.User.userName} likes={4}/>)}
                 {langFilter ==="" && filter === "albums" && searchResultsAlbums?.map((album, index) => <h2 key={index}>{album.name}</h2>)}
                 {langFilter ==="" && filter === "tracks" && searchResultsTracks?.map((track, index) => <h2 key={index}>{track.name}</h2>)}
                 {langFilter ==="" && filter === "users" && searchResultsUsers?.map((user, index) => <h2 key={index}>{user.userName}</h2>)}

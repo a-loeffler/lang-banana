@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Album, Language, Topic, Track} = require('../../db/models');
+const { User, Album, Language, Topic, Track, TrackLikes} = require('../../db/models');
 
 const {splitWordList, punctuation} = require('../../utils/searchtools');
 const { Op } = require('sequelize');
@@ -44,7 +44,7 @@ router.get('/:searchItems', asyncHandler(async (req, res) => {
     albumQueryObject.order = [['createdAt', 'DESC']];
     
     function trackSearch(trackQueryObject) {
-        trackQueryObject.include = [{ model: Topic}, { model: Language }, {model: Album}]
+        trackQueryObject.include = [{ model: Topic}, { model: Language }, {model: Album}, {model: User}, ]
 
         processedSearchItems3.forEach(word => {
             trackQueryObject.where[Op.or].push({ name: { [Op.iLike]: `%${word}%`} })
