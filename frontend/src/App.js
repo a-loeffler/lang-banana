@@ -14,6 +14,7 @@ import MediaPlayer from './components/MediaPlayer';
 
 import Content from './components/Content';
 import TrackUploadFormPage from './components/TrackUploadFormPage';
+import Search from './components/Search';
 
 function App() {
   const dispatch = useDispatch();
@@ -68,6 +69,9 @@ function App() {
             </Route>
             <Route path="/stream">
               <h3>Sorry, nothing here yet.  Check back soon!</h3>
+            </Route>
+            <Route path="/search/:searchItems">
+              <Search />
             </Route>
           </Switch>
         </div>
