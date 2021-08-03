@@ -110,7 +110,7 @@ const Search = () => {
             </div>
             <div className="search-content-container">
                 <h1>Search Results for {searchItems}</h1>
-                {searchResultsUsers.length === 0 && searchResultsTracks.length === 0 && searchResultsAlbums.length === 0 && <h2>No Results Found</h2>}
+                {searchResultsUsers.length === 0 && searchResultsTracks.length === 0 && searchResultsAlbums.length === 0 ? <h2>No Results Found</h2> : <h2 className="search-results-message">Found {searchResultsUsers.length} Users, {searchResultsAlbums.length} Albums, and {searchResultsTracks.length} Tracks</h2>}
                 {filter === "" && langFilter === "" && searchResultsUsers?.map((user, index) => <h2 key={index}>user - {user?.userName}</h2>)}
                 {filter === "" && langFilter === "" && searchResultsAlbums?.map((album, index) => <h2 key={index}>album - {album?.name}</h2>)}
                 {filter === "" && langFilter === "" && searchResultsTracks?.map((track, index) => <h2 key={index}>track - {track?.name}</h2>)}
@@ -119,6 +119,7 @@ const Search = () => {
                 {langFilter ==="" && filter === "users" && searchResultsUsers?.map((user, index) => <h2 key={index}>{user.userName}</h2>)}
                 {langFilter !=="" && filter === "" && filteredTracks?.map((track, index) => <h2 key={index}>{track.name}</h2>)}
                 {langFilter !=="" && filter === "" && filteredAlbums?.map((album, index) => <h2 key={index}>{album.name}</h2>)}
+                {langFilter !=="" && filter === "" && filteredAlbums.length === 0 && filteredTracks.length === 0 && <h2>No Results Found</h2>}
                 {langFilter !=="" && filter === "users" && <h2>No Results Found</h2>}
                 {langFilter !=="" && filter === "tracks" && filteredTracks.length > 0 && filteredTracks?.map((track, index) => <h2 key={index}>{track.name}</h2>)}
                 {langFilter !=="" && filter === "albums" && filteredAlbums.length > 0 && filteredAlbums?.map((album, index) => <h2 key={index}>{album.name}</h2>)}

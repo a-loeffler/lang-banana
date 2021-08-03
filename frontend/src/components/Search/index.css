@@ -65,3 +65,7 @@
     background-color: #14465f;
     border: 1px solid #FECD07;
 }
+
+.search-results-message {
+    color: #999999;
+}
