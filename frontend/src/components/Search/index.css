@@ -48,7 +48,8 @@
     color: #dcdcdc;
     margin: 1px;
     font-size: 12px;
-
+    height: 15px;
+    padding-left: 3px;
 }
 
 .lang-dropdown-li:hover {
@@ -62,4 +63,5 @@
 
 .active-lang-filter {
     background-color: #14465f;
+    border: 1px solid #FECD07;
 }
