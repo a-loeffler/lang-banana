@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.content-container {
+    
+}
+
 .content-carousel-container {
     position: relative;
     height: max-content;

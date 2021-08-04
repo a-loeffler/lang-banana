@@ -10,6 +10,9 @@
     display: grid;
     grid-template-columns: 10% 80% 10%;
     grid-template-rows: minmax(100vh, auto);
+    position: relative;
+    
+    
 }
 
 .display-side-space {
@@ -20,5 +23,15 @@
 .display-main {
     background-color: #F8F8F8;
     height: 100%;
-    padding-top: 75px;
+    padding-top: 60px;
+}
+
+.body {
+    background-color: #000000;
+}
+
+@media screen and (max-width: 1000px) {
+    .display-container {
+        grid-template-rows: minmax(150vh, auto);
+    }
 }

@@ -1,0 +1,267 @@
+.splash-page-container {
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 30% 70%;
+    position: relative;
+    
+}
+
+.splash-top-container {
+    background-color: #FECD07;
+    position: relative;
+}
+
+.splash-title-container {
+    width: 14vw;
+    height: 14vw;
+    background-color: #ffffff;
+    border: 10px solid #000000;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -7vw;
+    left: 40%;
+    z-index: 2;
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column; */
+}
+
+#splash-title-top {
+    position: absolute;
+    top: -4vw;
+    left: -0.77vw;
+    height: 8vw;
+    z-index: 2;
+
+}
+
+#splash-title-middle {
+    height: 10vw;
+    position: absolute;
+    top: 1vw;
+    left: -1vw;
+}
+
+#splash-title-bottom {
+    position: absolute;
+    height: 4.35vw;
+    bottom: -3.5vw;
+    left: -4.2vw;
+    z-index: 2;
+}
+
+
+.splash-bottom-container {
+    overflow: hidden;
+    background: linear-gradient(to right, #000 0%, #767171 18%, #3B3838 40%, #000000 100%);
+    position: relative;
+}
+
+#splash-bottom-background {
+    width: 100%;
+    height: auto;
+    z-index: 0;
+    
+}
+
+
+.splash-bottom-info-container {
+    position: absolute;
+    z-index: 2;
+    top: 40%;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: max-content;
+    width: 90%;
+}
+
+.splash-bottom-info-left {
+    background-color: rgba(0, 0, 0, 0.548);
+    padding: 20px;
+    margin-left: 100px;
+    border-radius: 7px;
+    height: 252px;
+}
+
+.splash-info-header {
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.7vw;
+    font-weight: 900;
+    text-align: left;
+    text-shadow: -2px 2px 2px #000000;
+    margin-bottom: 10px;
+    
+}
+
+.splash-info-text {
+    color: #FECD07;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3vw;
+    font-weight: 900;
+    text-align: left;
+    text-shadow: -2px 2px 2px #000000;
+    margin-bottom: 20px;
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.right-aligned-text {
+    text-align: right;
+}
+
+.white-text {
+    color: #ffffff;
+}
+
+.splash-bottom-info-right {
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+}
+
+
+.splash-buttons-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.splash-button {
+    width: 100px;
+    height: 55px;
+    background-color: #FECD07;
+    border: none;
+    margin: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    position: relative;
+}
+
+.splash-button:hover {
+    background-color: #ffee00;
+    cursor: pointer;
+}
+
+.splash-button:active {
+    top: 2px;
+}
+
+
+.splash-image {
+    width: auto;
+    height: 320px;
+    border-radius: 7px;
+    position: relative;
+    top: -34px;
+}
+
+
+@media screen and (min-width: 1161px) and (max-width: 1350px) {
+    .splash-image {
+        width: auto;
+        height: 252px;
+        top: 0;
+    }
+}
+
+
+@media screen and (max-width: 1160px) {
+    .splash-image {
+        width: 20vw;
+        height: auto;
+        top: 2vw;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    .splash-page-container {
+        
+        grid-template-rows: 20% 80%;
+    }
+
+    .splash-title-container {
+        border: 5px solid #000000;
+    }
+
+    .splash-bottom-container {
+        min-height: 1001px;
+    }
+
+    #splash-bottom-background {
+        height: 100%;
+        width: 100%;
+    }
+
+    .splash-bottom-info-container {
+        grid-template-columns: 60%;
+        grid-template-rows: max-content max-content;
+        margin-left: 23%;
+        top: 16%;
+        
+    }
+
+    .splash-info-header,
+    .splash-info-text,
+    .centered-text,
+    .right-aligned-text {
+        text-align: center;
+    }
+
+    .splash-bottom-info-left {
+        margin: 0;
+        height: max-content;
+    }
+
+    .splash-bottom-info-right {
+        grid-template-columns: 100%;
+        grid-template-rows: max-content min-content;
+        margin: 0;
+    }
+
+    .splash-image-container {
+        width: 100%;
+        padding: 0;
+
+    }
+
+    .splash-image {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    /* .splash-bottom-container {
+        overflow: visible;
+    } */
+
+    .splash-buttons-container {
+        flex-direction: row;
+        margin: 0;
+        margin-top: 20px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    #splash-bottom-background {
+        height: 100%;
+        width: 150%;
+        position: relative;
+        left: -30%;
+    }
+
+    .splash-bottom-info-container {
+        top: 10%;
+    }
+
+    .splash-button {
+        font-size: 10px;
+    }
+}

@@ -15,6 +15,7 @@ import MediaPlayer from './components/MediaPlayer';
 import Content from './components/Content';
 import TrackUploadFormPage from './components/TrackUploadFormPage';
 import Search from './components/Search';
+import SplashPage from './components/SplashPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -50,7 +51,7 @@ function App() {
         <div className="display-main">
           <Switch>
             <Route exact path="/">
-              <h1>Hello from App</h1>
+              <SplashPage />
             </Route>
             <Route path="/media">
               <Content />
