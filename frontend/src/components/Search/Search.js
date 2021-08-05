@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 
 import TrackSearchCard from "./TrackSearchCard";
 import AlbumSearchCard from "./AlbumSearchCard";
+import UserSearchCard from "./UserSearchCard";
 
 
 const Search = () => {
@@ -132,7 +133,7 @@ const Search = () => {
             <div className="search-content-container">
                 <h1>Search Results for {searchItems}</h1>
                 {searchResultsUsers.length === 0 && searchResultsTracks.length === 0 && searchResultsAlbums.length === 0 ? <h2>No Results Found</h2> : <h2 className="search-results-message">Found {searchResultsUsers.length} Users, {searchResultsAlbums.length} Albums, and {searchResultsTracks.length} Tracks</h2>}
-                {filter === "" && langFilter === "" && searchResultsUsers?.map((user, index) => <h2 key={index}>user - {user?.userName}</h2>)}
+                {filter === "" && langFilter === "" && searchResultsUsers?.map((user, index) => <UserSearchCard key={index} userName={user.userName} userId={user.id} albums={user.Albums} userAvatar={user.avatarUrl} likes={14}/>)}
                 {filter === "" && langFilter === "" && searchResultsAlbums?.map((album, index) => <AlbumSearchCard key={index} albumArtUrl={album.coverArtUrl} albumTitle={album.name} albumArtist={album.User.userName} creatorId={album.creatorId} albumId={album.id} tracks={album.Tracks} likes={5}/>)}
                 {filter === "" && langFilter === "" && searchResultsTracks?.map((track, index) => <TrackSearchCard key={index} imageUrl={track.Album.coverArtUrl} title={track.name} artist={track.User.userName} likes={4} trackId={track.id} trackFileUrl={track.trackFileUrl} creatorId={track.creatorId} />)}
                 {langFilter ==="" && filter === "albums" && searchResultsAlbums?.map((album, index) => <AlbumSearchCard key={index} albumArtUrl={album.coverArtUrl} albumTitle={album.name} albumArtist={album.User.userName} creatorId={album.creatorId} albumId={album.id} tracks={album.Tracks} likes={5}/>)}

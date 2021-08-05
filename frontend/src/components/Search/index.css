@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: min-content 1fr;
     column-gap: 10px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -72,6 +73,7 @@
     color: #999999;
 }
 
+.user-search-card-container,
 .album-search-card-container,
 .track-search-card-container {
     width: 80%;
@@ -89,6 +91,11 @@
     grid-template-columns: 18% 82%;
 }
 
+.user-search-card-container {
+    grid-template-rows: 250px;
+}
+
+.user-search-card-container:hover,
 .album-search-card-container:hover,
 .track-search-card-container:hover {
     background-color: #fcfcfc;
@@ -219,4 +226,92 @@
     justify-content: flex-end;
     padding-right: 200px;
     padding-top: 10px;
+}
+
+.user-search-card-info-container {
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.user-search-card-image {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 50%;
+    border: 2px solid #c9c9c9;
+}
+
+.user-search-card-info-container {
+    margin-left: 20px;
+}
+
+.user-search-card-info-title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.user-search-card-album-section {
+    margin-top: 20px;
+}
+
+.user-search-card-info-subtitle {
+    color: #999999;
+}
+
+.user-search-card-album-container {
+    display: flex;
+    width: 80%;
+    border: 1px solid #999999;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.mini-album-card-container {
+    margin-right: 5px;
+    width: 20%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 110px;
+}
+
+.mini-album-card-image {
+    width: 100%;
+}
+
+.mini-album-card-title {
+    font-size: 12px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mini-album-card-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.mini-album-card-link:hover {
+    filter: brightness(80%);
+    color: #FECD07;
+    text-decoration: underline;
+}
+
+.view-more-albums {
+    font-size: 16px;
+    font-weight: 700;
+    height: 40px;
+    transform: rotate(0.75turn);
+    width: 100px;
+    position: relative;
+    top: 31px;
+    left: 55%;
+    background-color: #ffffff;
+    border: 1px solid #999999;
+}
+
+.view-more-albums:hover {
+    border: 1px solid #F56859;
+    background-color: #f6f6f6;
+    left: 55.1%;
+    cursor: pointer;
 }
