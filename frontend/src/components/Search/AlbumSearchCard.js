@@ -19,8 +19,8 @@ const AlbumSearchCard = ({albumArtUrl, albumTitle, albumArtist, creatorId, track
                 <img className="albumArt" src={albumArtUrl} alt={`Album Art for ${albumTitle}`}></img>
             </div>
             <div className="album-search-card-info-container">
-                <Link to={`/albums/${albumId}`} className="search-card-link"><h1>{albumTitle}</h1></Link>
-                <Link to={`/users/${creatorId}`} className="search-card-link"><h2>{albumArtist}</h2></Link>
+                <Link to={`/albums/${albumId}`} className="search-card-link"><h1 className="album-search-card-info-title">{albumTitle}</h1></Link>
+                <Link to={`/users/${creatorId}`} className="search-card-link"><h2 className="album-search-card-info-artist">{albumArtist}</h2></Link>
                 <div className="album-search-card-tracks-container">
                     <div className="album-search-card-tracks-list">
                         {firstTracks?.map((track, index) => track ? <AlbumTrackListItem key={index} number={index} trackTitle={track.name} albumArtUrl={albumArtUrl} artist={albumArtist} trackFileUrl={track.trackFileUrl}/> : null)}

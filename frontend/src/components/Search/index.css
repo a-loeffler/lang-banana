@@ -25,6 +25,27 @@
     top: 2px;
 }
 
+.search-filter-button-sm {
+    width: 80%;
+    border: none;
+    background-color: #999999;
+    height: 20px;    
+    color: #dcdcdc;
+    border-bottom: 1px solid #333333;
+    position: relative;
+}
+
+
+
+.search-filter-button-sm:hover {
+    background-color: #464646;
+    cursor: pointer;
+}
+
+.search-filter-button-sm:active {
+    top: 2px;
+}
+
 .cancel-filter-button {
     background-color: #F56859;
     color: #000000;
@@ -56,6 +77,30 @@
 }
 
 .lang-dropdown-li:hover {
+    background-color: #14465f;
+    cursor: pointer;
+}
+
+.lang-dropdown-list-sm {
+    width: 250px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(13, 1fr);
+    grid-auto-flow: column;
+    list-style: none;
+    margin-left: 5%;
+}
+
+.lang-dropdown-li-sm {
+    background-color: #206082;
+    color: #dcdcdc;
+    margin: 1px;
+    font-size: 12px;
+    height: 15px;
+    
+}
+
+.lang-dropdown-li-sm:hover {
     background-color: #14465f;
     cursor: pointer;
 }
@@ -230,7 +275,7 @@
 
 .user-search-card-info-container {
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 30% 60%;
 }
 
 .user-search-card-image {
@@ -247,7 +292,7 @@
 
 .user-search-card-info-title {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .user-search-card-album-section {
@@ -256,6 +301,7 @@
 
 .user-search-card-info-subtitle {
     color: #999999;
+    margin-bottom: 5px;
 }
 
 .user-search-card-album-container {
@@ -264,14 +310,18 @@
     border: 1px solid #999999;
     padding-top: 10px;
     padding-left: 10px;
+    border-radius: 4px;
+    position: relative;
+    height: 150px;
 }
 
 .mini-album-card-container {
-    margin-right: 5px;
+    margin-right: 10px;
     width: 20%;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 110px;
+    height: 130px;
+    margin-top: 5px;
 }
 
 .mini-album-card-image {
@@ -283,6 +333,8 @@
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 .mini-album-card-link {
@@ -302,16 +354,263 @@
     height: 40px;
     transform: rotate(0.75turn);
     width: 100px;
-    position: relative;
-    top: 31px;
-    left: 55%;
+    position: absolute;
+    top: 51px;
+    left: 75%;
     background-color: #ffffff;
     border: 1px solid #999999;
+    border-radius: 4px;
+}
+
+.sm-view-more-albums {
+    display: none;
 }
 
 .view-more-albums:hover {
     border: 1px solid #F56859;
     background-color: #f6f6f6;
-    left: 55.1%;
+    left: 75.5%;
     cursor: pointer;
+}
+
+.search-filter-container-sm {
+    display: none;
+}
+
+
+
+@media screen and (max-width: 1450px) {
+    .album-track-list-item-container {
+        width: 450px;
+    }
+
+    .more-tracks-button {
+        width: 450px;
+    }
+}
+
+
+@media screen and (max-width: 1350px) {
+    .view-more-albums {
+        left: 65%;
+    }
+
+    .view-more-albums:hover {
+        left: 65.5%;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .album-track-list-item-title {
+        font-size: 12px;
+        text-overflow: ellipsis;
+    }
+
+    .album-track-list-item-container {
+        display: grid;
+        height: 25px;
+        grid-template-columns: 25px 300px max-content;
+        border: 1px solid #999999;
+        width: 350px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .more-tracks-button {
+        width: 350px;
+        font-size: 12px;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    .search-results-container {
+        padding-top: 60px;
+    }
+
+    .track-search-card-container,
+    .user-search-card-container {
+        grid-template-columns: 30% 70%;
+    }
+
+    .album-search-card-info-title,
+    .track-search-card-info-title {
+        font-size: 24px;
+    }
+
+    .album-search-card-info-artist,
+    .track-search-card-info-artist {
+        font-size: 20px;
+    }
+
+    .album-search-card-tracks-list {
+        margin-top: 10px;
+    }
+
+    .user-search-card-info-container {
+        grid-template-columns: 1fr;
+    }
+
+    .user-search-card-album-section {
+        display: none;
+    }
+
+    .sm-view-more-albums {
+        display: inline-block;
+        font-size: 14px;
+        height: 35px;
+        width: max-content;
+        background-color: #ffffff;
+        border: 1px solid #999999;
+        border-radius: 4px;
+        position: relative;
+        padding: 5px;
+        margin-top: 5px;
+    }
+
+    .sm-view-more-albums:hover {
+        border: 1px solid #F56859;
+        background-color: #f6f6f6;
+        top: 2px;
+        cursor: pointer;
+        
+    }
+
+    .search-query-message {
+        font-size: 20px;
+    }
+
+    .search-results-message {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .album-track-list-item-container {
+        display: grid;
+        height: 25px;
+        grid-template-columns: 25px 300px max-content;
+        border: 1px solid #999999;
+        width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-left: 20px;
+    }
+
+    .more-tracks-button {
+        width: 200px;
+        margin-left: 20px;
+    }
+
+    .album-search-card-container {
+        height: 320px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .album-search-card-container {
+        height: 350px;
+    }
+
+    .track-search-card-container,
+    .user-search-card-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 2fr;
+        
+    }
+
+    .track-search-card-container {
+        padding: 20px;
+    }
+
+    .album-search-card-info-title,
+    .track-search-card-info-title {
+        font-size: 16px;
+    }
+
+
+    .album-search-card-info-artist,
+    .track-search-card-info-artist {
+        font-size: 12px;
+    }
+
+    .search-query-message {
+        font-size: 16px;
+    }
+
+    .search-results-message {
+        font-size: 12px;
+    }
+
+    .user-search-card-image {
+        width: 40%;
+
+    }
+
+    .track-search-card-image-container {
+        margin: 0;
+        width: 40%;
+    }
+
+    .album-track-list-item-container {
+        display: grid;
+        height: 25px;
+        grid-template-columns: 25px 300px max-content;
+        border: 1px solid #999999;
+        width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-left: 20px;
+    }
+
+    .more-tracks-button {
+        width: 200px;
+        font-size: 12px;
+        margin-left: 20px;
+    }
+
+    .album-search-card-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 20% 80%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .album-search-card-image-container {
+        width: 20%;
+        margin: auto;
+        padding: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: relative;
+        left: -10px;
+    }
+
+    .album-track-list-item-title {
+        font-size: 10px;
+    }
+
+    .search-results-container {
+        padding-top: 100px;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content;
+        padding-left: 20px;
+    }
+
+    .search-filter-container-sm {
+        display: grid;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .lang-dropdown-li {
+        display: none;
+    }
+
+    .search-filter-button {
+        display: none;
+    }
+
 }

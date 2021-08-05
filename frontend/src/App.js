@@ -16,6 +16,7 @@ import Content from './components/Content';
 import TrackUploadFormPage from './components/TrackUploadFormPage';
 import Search from './components/Search';
 import SplashPage from './components/SplashPage';
+import UserPage from './components/UserPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -73,6 +74,9 @@ function App() {
             </Route>
             <Route path="/search/:searchItems">
               <Search />
+            </Route>
+            <Route exact path="/users/:userPageId">
+              <UserPage />
             </Route>
           </Switch>
         </div>

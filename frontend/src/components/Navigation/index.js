@@ -20,7 +20,7 @@ const Navigation = ({ isLoaded }) => {
     const [activeLink, setActiveLink] = useState("");
 
     useEffect(() => {
-        console.log(activeLink)
+        
     }, [activeLink])
 
     let navBarLinks;
