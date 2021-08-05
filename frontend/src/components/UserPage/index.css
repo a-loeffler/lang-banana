@@ -1,0 +1,49 @@
+@media screen and (max-width: 500px) {
+    .user-page-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 25% 75%;
+        height: 150vh;
+    }
+    
+    
+    .user-page-top {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        text-align: center;
+        position: relative;
+        margin-top: 60px;
+    }
+
+    .user-page-splash-img {
+        width: 100%;
+        
+        z-index: 0;
+    }
+
+    .user-avatar-container {
+        position: absolute;
+        top: 10vw;
+        left: 18.5vw;
+        width: 40vw;
+        height: 40vw;
+        padding: 10px;
+        background-color: #ffffff;
+        border: 6px solid #000000;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user-page-img {
+        z-index: 2;
+        background-color: transparent;
+        width: 70%;
+    }
+}
+
+

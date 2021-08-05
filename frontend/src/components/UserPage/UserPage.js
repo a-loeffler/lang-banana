@@ -26,12 +26,24 @@ const UserPage = () => {
             console.log("Nope")
         }
 
-    }, [currentUser, userPageId])
+    }, )
+
+    useEffect(() => {}, [currentUser, userPageId])
 
 
     return (
         <div className="user-page-container">
-            <h1>{userPageId}</h1>
+            
+            <div className="user-page-top">
+                <img className="user-page-splash-img" alt="" src="/images/userpage-splash-pattern.png"></img>
+                <div className="user-avatar-container">
+                    {isCurrentUser && <img className="user-page-img" src={`${currentUser.avatarUrl ? currentUser.avatarUrl : "https://i.ibb.co/XSSZnYp/albumimggeneric.png"}`}></img>}
+                </div>
+                
+            </div>
+            <div className="user-page-bottom">
+
+            </div>
         </div>
     )
 }
