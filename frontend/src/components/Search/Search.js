@@ -62,7 +62,23 @@ const Search = () => {
                 return album.Language.name === langFilter
             })
             setFilteredAlbums(langFilteredAlbums)
-        } 
+        }
+
+        if (langFilter && filter) {
+            if (filter === "tracks") {
+                const langFilteredTracks = searchResultsTracks.filter((track) => {
+                    return track.Language.name === langFilter
+                })
+                setFilteredTracks(langFilteredTracks)
+            }
+
+            if (filter === "albums") {
+                const langFilteredAlbums = searchResultsAlbums.filter((album) => {
+                    return album.Language.name === langFilter
+                })
+                setFilteredAlbums(langFilteredAlbums)
+            }
+        }
         
         if (!langFilter) {
             setFilteredTracks([])
