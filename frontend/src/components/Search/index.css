@@ -70,6 +70,7 @@
     color: #999999;
 }
 
+.album-search-card-container,
 .track-search-card-container {
     width: 80%;
     display: grid;
@@ -81,6 +82,12 @@
     margin-bottom: 20px;
 }
 
+.album-search-card-container {
+    grid-template-rows: 300px;
+    grid-template-columns: 18% 82%;
+}
+
+.album-search-card-container:hover,
 .track-search-card-container:hover {
     background-color: #fcfcfc;
 }
@@ -94,6 +101,7 @@
     margin-top: 20px;
 }
 
+.search-card-info-likes,
 .track-search-card-info-likes {
     height: 35px;
     display: flex;
@@ -105,12 +113,15 @@
     position: relative;
 }
 
+.search-card-info-likes:hover,
 .track-search-card-info-likes:hover {
     border: 1px solid #F56859;
     background-color: #f6f6f6;
     top: 1px;
+    cursor: pointer;
 }
 
+.search-card-info-likes:active,
 .track-search-card-info-likes:active {
     top: 2px;
 }
@@ -120,3 +131,90 @@
     margin-right: 5px;
 }
 
+.search-card-link {
+    text-decoration: none;
+    color: black;
+}
+
+.search-card-link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #FECD07;
+    text-decoration-color: #FECD07;
+}
+
+.album-track-list-item-container {
+    display: grid;
+    height: 25px;
+    grid-template-columns: 25px 1fr max-content;
+    border: 1px solid #999999;
+    width: 600px;
+}
+
+.album-track-list-item-container:hover {
+    background-color: #cfcfcf;
+    cursor: pointer;
+}
+
+.album-track-list-item-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-top: 3px;
+}
+
+
+.album-track-list-item-img {
+    width: 19px;
+    margin-left: 2px;
+    margin-top: 2px;
+
+}
+
+.album-track-list-item-play-arrow {
+    height: 19px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.album-search-card-image-container {
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.album-search-card-info-container {
+    padding-top: 20px;
+}
+
+.album-search-card-tracks-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+
+.more-tracks-button {
+    height: 25px;
+    width: 600px;
+    background-color: transparent;
+    border: 1px solid #999999;
+    position: relative;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.more-tracks-button:hover {
+    background-color: #cfcfcf;
+    cursor: pointer;
+}
+
+.more-tracks-button:active {
+    background-color: #b1b1b1;
+    top: 1px;
+}
+
+.album-search-card-button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 200px;
+    padding-top: 10px;
+}
