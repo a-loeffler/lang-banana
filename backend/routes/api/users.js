@@ -57,4 +57,7 @@ router.get('/:id(\\d+)/albums', asyncHandler(async (req, res) => {
 
 }));
 
+
+router.get('/:userId(\\d+)')
+
 module.exports = router;

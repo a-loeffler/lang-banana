@@ -4,6 +4,8 @@
         grid-template-columns: 1fr;
         grid-template-rows: 25% 75%;
         height: 150vh;
+        background: #206082;
+        font-family: Arial, Helvetica, sans-serif;
     }
     
     
@@ -16,6 +18,7 @@
         text-align: center;
         position: relative;
         margin-top: 60px;
+        filter:drop-shadow(0px 2px 2px #0000008c);
     }
 
     .user-page-splash-img {
@@ -26,7 +29,7 @@
 
     .user-avatar-container {
         position: absolute;
-        top: 10vw;
+        top: 11vw;
         left: 18.5vw;
         width: 40vw;
         height: 40vw;
@@ -37,6 +40,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        filter: drop-shadow(0 2px 2px #0000008c);
     }
 
     .user-page-img {
@@ -44,6 +48,79 @@
         background-color: transparent;
         width: 70%;
     }
+
+    .user-edit-button {
+        width: 85px;
+        border: none;
+        border-radius: 4px;
+        height: 20px;
+        background-color: #206082;
+        color: #c9c9c9;
+        position: absolute;
+        font-size: 11px;
+        box-shadow: 0 2px 2px #0000008c;
+    }
+
+    .user-edit-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .tl {
+        top: 7vh;
+        left: 2vw;
+    }
+
+    .tl:hover {
+        top: 7.2vh;
+    }
+
+    .tl:active {
+        top: 7.4vh;
+    }
+
+    .tr {
+        top: 7vh;
+        right: 2vw;
+    }
+
+    .tr:hover {
+        top: 7.2vh;
+    }
+
+    .tr:active {
+        top: 7.4vh;
+    }
+
+    .user-edit-button:hover {
+        
+        filter: brightness(90%);
+    }
+
+    .user-page-bottom {
+        padding-top: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-page-box {
+        color: #FECD07;
+        width: 80%;
+        text-shadow: 0 2px 2px #0000008c;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        border: 3px ridge #FECD07;
+    }
+
+    #my-albums {
+        height: 150px;
+        overflow-y:auto;
+    }
+
 }
 
 
