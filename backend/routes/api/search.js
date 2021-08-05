@@ -73,7 +73,7 @@ router.get('/:searchItems', asyncHandler(async (req, res) => {
     }
 
     function albumSearch(albumQueryObject) {
-        albumQueryObject.include = [{ model: Language}]
+        albumQueryObject.include = [{ model: Language}, {model: Track}, {model: User}]
         processedSearchItems3.forEach(word => {
             albumQueryObject.where[Op.or].push({ name: { [Op.iLike]: `%${word}%`}})
         })

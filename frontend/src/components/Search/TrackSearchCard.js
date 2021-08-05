@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { playSelectedTrack } from '../../store/tracks';
 
 
-const TrackSearchCard = ({ imageUrl, title, artist, likes, trackFileUrl }) => {
+const TrackSearchCard = ({ imageUrl, title, artist, likes, trackFileUrl, trackId, creatorId }) => {
 
     const dispatch = useDispatch()
 
@@ -19,7 +20,7 @@ const TrackSearchCard = ({ imageUrl, title, artist, likes, trackFileUrl }) => {
     }
 
     const mediaPlayerActions = () => {
-        const playTrackData = {trackFileUrl, imageUrl, title, artist};
+        const playTrackData = {trackFileUrl, albumArtUrl: imageUrl, title, artist};
         dispatch(playSelectedTrack(playTrackData));
     }
 
@@ -32,8 +33,8 @@ const TrackSearchCard = ({ imageUrl, title, artist, likes, trackFileUrl }) => {
                 </div>
             </div>
             <div className="track-search-card-info-container">
-                <h1 className="track-search-card-info-title">{title}</h1>
-                <h2 className="track-search-card-info-artist">{artist}</h2>
+                <Link to={`/tracks/${trackId}`} className="search-card-link"><h1 className="track-search-card-info-title">{title}</h1></Link>
+                <Link to={`/users/${creatorId}`} className="search-card-link"><h2 className="track-search-card-info-artist">{artist}</h2></Link>
                 <button className="track-search-card-info-likes">
                     <img className="likes-heart" alt="" src="/images/likes-heart.svg"></img>
                     {likes}

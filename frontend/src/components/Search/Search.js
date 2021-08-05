@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import TrackSearchCard from "./TrackSearchCard";
+import AlbumSearchCard from "./AlbumSearchCard";
 
 
 const Search = () => {
@@ -46,7 +47,7 @@ const Search = () => {
         
         // console.log("Users: ", searchResultsUsers)
         // console.log("Albums: ", searchResultsAlbums[0]?.name)
-        console.log("Tracks: ", searchResultsTracks)
+        console.log("search results", searchResults)
 
     }, [searchResults, searchResultsAlbums, searchResultsTracks, searchResultsUsers]);
 
@@ -68,6 +69,10 @@ const Search = () => {
             setFilteredAlbums([])
         }
     }, [langFilter])
+
+    useEffect(() => {
+
+    }, [filter])
 
     const changeFilter = (filterCategory) => {
         if (filter !== filterCategory) {
@@ -112,17 +117,17 @@ const Search = () => {
                 <h1>Search Results for {searchItems}</h1>
                 {searchResultsUsers.length === 0 && searchResultsTracks.length === 0 && searchResultsAlbums.length === 0 ? <h2>No Results Found</h2> : <h2 className="search-results-message">Found {searchResultsUsers.length} Users, {searchResultsAlbums.length} Albums, and {searchResultsTracks.length} Tracks</h2>}
                 {filter === "" && langFilter === "" && searchResultsUsers?.map((user, index) => <h2 key={index}>user - {user?.userName}</h2>)}
-                {filter === "" && langFilter === "" && searchResultsAlbums?.map((album, index) => <h2 key={index}>album - {album?.name}</h2>)}
-                {filter === "" && langFilter === "" && searchResultsTracks?.map((track, index) => <TrackSearchCard key={index} imageUrl={track.Album.coverArtUrl} title={track.name} artist={track.User.userName} likes={4}/>)}
-                {langFilter ==="" && filter === "albums" && searchResultsAlbums?.map((album, index) => <h2 key={index}>{album.name}</h2>)}
-                {langFilter ==="" && filter === "tracks" && searchResultsTracks?.map((track, index) => <h2 key={index}>{track.name}</h2>)}
+                {filter === "" && langFilter === "" && searchResultsAlbums?.map((album, index) => <AlbumSearchCard key={index} albumArtUrl={album.coverArtUrl} albumTitle={album.name} albumArtist={album.User.userName} creatorId={album.creatorId} albumId={album.id} tracks={album.Tracks} likes={5}/>)}
+                {filter === "" && langFilter === "" && searchResultsTracks?.map((track, index) => <TrackSearchCard key={index} imageUrl={track.Album.coverArtUrl} title={track.name} artist={track.User.userName} likes={4} trackId={track.id} trackFileUrl={track.trackFileUrl} creatorId={track.creatorId} />)}
+                {langFilter ==="" && filter === "albums" && searchResultsAlbums?.map((album, index) => <AlbumSearchCard key={index} albumArtUrl={album.coverArtUrl} albumTitle={album.name} albumArtist={album.User.userName} creatorId={album.creatorId} albumId={album.id} tracks={album.Tracks} likes={5}/>)}
+                {langFilter ==="" && filter === "tracks" && searchResultsTracks?.map((track, index) => <TrackSearchCard key={index} imageUrl={track.Album.coverArtUrl} title={track.name} artist={track.User.userName} likes={4} trackId={track.id} trackFileUrl={track.trackFileUrl} creatorId={track.creatorId} />)}
                 {langFilter ==="" && filter === "users" && searchResultsUsers?.map((user, index) => <h2 key={index}>{user.userName}</h2>)}
-                {langFilter !=="" && filter === "" && filteredTracks?.map((track, index) => <h2 key={index}>{track.name}</h2>)}
-                {langFilter !=="" && filter === "" && filteredAlbums?.map((album, index) => <h2 key={index}>{album.name}</h2>)}
+                {langFilter !=="" && filter === "" && filteredTracks?.map((track, index) => <TrackSearchCard key={index} imageUrl={track.Album.coverArtUrl} title={track.name} artist={track.User.userName} likes={4} trackId={track.id} trackFileUrl={track.trackFileUrl} creatorId={track.creatorId} />)}
+                {langFilter !=="" && filter === "" && filteredAlbums?.map((album, index) => <AlbumSearchCard key={index} albumArtUrl={album.coverArtUrl} albumTitle={album.name} albumArtist={album.User.userName} creatorId={album.creatorId} albumId={album.id} tracks={album.Tracks} likes={5}/>)}
                 {langFilter !=="" && filter === "" && filteredAlbums.length === 0 && filteredTracks.length === 0 && <h2>No Results Found</h2>}
                 {langFilter !=="" && filter === "users" && <h2>No Results Found</h2>}
-                {langFilter !=="" && filter === "tracks" && filteredTracks.length > 0 && filteredTracks?.map((track, index) => <h2 key={index}>{track.name}</h2>)}
-                {langFilter !=="" && filter === "albums" && filteredAlbums.length > 0 && filteredAlbums?.map((album, index) => <h2 key={index}>{album.name}</h2>)}
+                {langFilter !=="" && filter === "tracks" && filteredTracks.length > 0 && filteredTracks?.map((track, index) => <TrackSearchCard key={index} imageUrl={track.Album.coverArtUrl} title={track.name} artist={track.User.userName} likes={4} trackId={track.id} trackFileUrl={track.trackFileUrl} creatorId={track.creatorId} />)}
+                {langFilter !=="" && filter === "albums" && filteredAlbums.length > 0 && filteredAlbums?.map((album, index) => <AlbumSearchCard key={index} albumArtUrl={album.coverArtUrl} albumTitle={album.name} albumArtist={album.User.userName} creatorId={album.creatorId} albumId={album.id} tracks={album.Tracks} likes={5}/>)}
                 {langFilter !=="" && filter === "tracks" && filteredTracks.length === 0 && <h2>No Results Found</h2>}
                 {langFilter !=="" && filter === "albums" && filteredAlbums.length === 0 && <h2>No Results Found</h2>}
             </div>

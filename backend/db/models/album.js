@@ -30,6 +30,8 @@ module.exports = (sequelize, DataTypes) => {
     Album.belongsTo(models.Topic, { foreignKey: 'topicId' });
     Album.belongsTo(models.User, { foreignKey: 'creatorId' });
 
+    Album.hasMany(models.Track, { foreignKey: 'albumId' });
+
 
   };
   return Album;
