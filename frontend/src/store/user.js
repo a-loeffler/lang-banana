@@ -30,7 +30,7 @@ export const fetchAlbumsForOneUser = (userId) => async (dispatch) => {
 
 export const fetchDataForOneUser = (userId) => async (dispatch) => {
 
-    const response = await fetch(`api/users/${userId}`)
+    const response = await fetch(`/api/users/${userId}`)
 
     const data = await response.json();
     
@@ -50,7 +50,7 @@ const userReducer = (state = initialState, action) => {
         case GET_USER_DATA: {
             let newState = {...state};
             let userId = action.payload.userId;
-            newState.userPageData.userId = action.payload.userData;
+            newState.userPageData[userId] = action.payload.userData;
 
             return newState;
         }

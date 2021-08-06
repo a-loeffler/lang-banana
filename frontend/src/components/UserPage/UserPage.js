@@ -4,12 +4,17 @@ import { useParams } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 
+import { fetchDataForOneUser } from "../../store/user";
+
 
 const UserPage = () => {
+    const dispatch = useDispatch();
 
     const userPageId = Number(useParams().userPageId);
 
     const currentUser = useSelector(state => state.session.user)
+
+    const userPageData = useSelector(state => state.user.userPageData)
 
     const [isCurrentUser, setIsCurrentUser] = useState(false);
 
@@ -43,6 +48,25 @@ const UserPage = () => {
         // getPageData(userPageId);
     }, [currentUser, userPageId])
 
+    useEffect(() => {
+
+        console.log(userPageData)
+        if (userPageData[userPageId] === undefined) {
+            console.log("here 53")
+            dispatch(fetchDataForOneUser(userPageId))
+            .then(() => {
+                if (userPageData[userPageId].length === 0) {
+                    console.log("here 58")
+                    setPageData("no user in database")
+            };
+            })
+        }
+
+        
+
+        setPageData(userPageData);
+        console.log(pageData);
+    }, )
 
     return (
         <div className="user-page-container">

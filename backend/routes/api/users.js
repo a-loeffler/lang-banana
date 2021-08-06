@@ -4,13 +4,14 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Album } = require('../../db/models');
+const { User, Album, Track } = require('../../db/models');
 
 const router = express.Router();
 
 //validation error handling
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+
 
 const validateSignup = [
     check('email')
@@ -58,6 +59,23 @@ router.get('/:id(\\d+)/albums', asyncHandler(async (req, res) => {
 }));
 
 
-router.get('/:userId(\\d+)')
+router.get('/:userId(\\d+)', asyncHandler(async (req, res)=> {
+
+  const userId = parseInt(req.params.userId, 10);
+
+  console.log("~~~~~~~~~~~~~~~~~~~~~~~>", userId)
+
+  const searchObject = {
+    include: [{model: Album}, {model: Track}],
+    attributes: ['id', 'userName', 'avatarUrl']
+  }
+
+  const userData = await User.findByPk(userId, searchObject);
+
+  console.log(userData)
+
+  return res.json({ userData })
+
+}))
 
 module.exports = router;
