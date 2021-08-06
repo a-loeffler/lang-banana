@@ -42,6 +42,10 @@ const ProfileButton = ({user}) => {
         history.push('/tracks/upload')
     }
 
+    const goToProfile = () => {
+        history.push(`/users/${user.id}`)
+    }
+
 
 
     const logout = (e) => {
@@ -61,7 +65,9 @@ const ProfileButton = ({user}) => {
                         <li>
                             <button className="user-menu-button" onClick={goToUpload}>Upload New Track</button>
                         </li>
-                        <li>Your Profile</li>
+                        <li>
+                            <button className="user-menu-button" onClick={goToProfile}>Your Profile</button>
+                        </li>
                         <li>
                             <button className="user-menu-button" onClick={logout}>Log Out</button>
                         </li>

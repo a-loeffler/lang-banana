@@ -14,7 +14,7 @@ const NavBarButton = ({text, toLink, color, setActiveLink, activeLink }) => {
 
 
     return (
-        <button className={`navbar-button ${color} ${activeLink === text ? "button-highlight" : ""}`} onClick={() => setActiveLink(text)}>{text}</button>
+        <button id={text} className={`navbar-button ${color} ${activeLink === text ? "button-highlight" : ""}`} onClick={() => setActiveLink(text)}>{text}</button>
     )
 }
 

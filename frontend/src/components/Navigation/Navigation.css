@@ -164,7 +164,22 @@
 
 @media screen and (min-width: 1800px) {
     .searchbar-field {
-        width: 35vw;
+        width: 30vw;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    
+
+    #Stream {
+        display: none;
+
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .user-welcome {
+        display: none;
     }
 }
 
@@ -189,7 +204,7 @@
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1000px) {
     .header-nav {
         height: 120px;
         width: 100%;
@@ -200,8 +215,8 @@
         grid-template-rows: 1fr 1fr; */
         grid-template-areas: 
             "side-space-l logo logo logo profile"
-            "side-space-l buttons buttons buttons profile"
-            "side-space-l search-field search-field search-field profile";
+            "side-space-l buttons buttons buttons buttons"
+            "side-space-l search-field search-field search-field search-field";
         position: fixed;
         z-index: 3;
     }
@@ -214,11 +229,22 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        padding-right: 15px;
-        padding-left: 15px;
+        padding-right: 10vw;
+        padding-left: 10vw;
+        
         
     }
 
+    
+
+    .user-icon {
+        max-width: 100%;
+        max-height: 40px;
+        height: unset;
+        padding: 0;
+        margin-left: 25px;
+        margin-bottom: 3px;
+    }
 
 
     .site-buttons {
@@ -231,7 +257,7 @@
     .searchbar-container {
         grid-area: search-field;
         height: 30px;
-
+        padding-right: 4px;
     }
 
     .user-buttons {
@@ -268,9 +294,12 @@
         margin: 3px;
     }
 
-    .user-icon {
-        /* padding-left: 40px; */
+    .navbar-button {
+        width: 48%;
+    }
+    /* .user-icon {
+        /* padding-left: 40px; 
         height: 60%;
         padding-left: 55%;
-    }
+    } */
 }

@@ -1,0 +1,200 @@
+@media screen and (max-width: 500px) {
+    .user-page-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 25% 75%;
+        height: 150vh;
+        background: #206082;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    
+    .user-page-top {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+        text-align: center;
+        position: relative;
+        margin-top: 60px;
+        filter:drop-shadow(0px 2px 2px #0000008c);
+    }
+
+    .user-page-splash-img {
+        width: 100%;
+        
+        z-index: 0;
+    }
+
+    .user-avatar-container {
+        position: absolute;
+        top: 11vw;
+        left: 18.5vw;
+        width: 40vw;
+        height: 40vw;
+        padding: 10px;
+        background-color: #ffffff;
+        border: 6px solid #000000;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        filter: drop-shadow(0 2px 2px #0000008c);
+    }
+
+    .user-page-img {
+        z-index: 2;
+        background-color: transparent;
+        width: 70%;
+    }
+
+    .user-edit-button {
+        width: 85px;
+        border: none;
+        border-radius: 4px;
+        height: 20px;
+        background-color: #206082;
+        color: #c9c9c9;
+        position: absolute;
+        font-size: 11px;
+        box-shadow: 0 2px 2px #0000008c;
+    }
+
+    .user-edit-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .tl {
+        top: 7vh;
+        left: 2vw;
+    }
+
+    .tl:hover {
+        top: 7.2vh;
+    }
+
+    .tl:active {
+        top: 7.4vh;
+    }
+
+    .tr {
+        top: 7vh;
+        right: 2vw;
+    }
+
+    .tr:hover {
+        top: 7.2vh;
+    }
+
+    .tr:active {
+        top: 7.4vh;
+    }
+
+    .user-edit-button:hover {
+        
+        filter: brightness(90%);
+    }
+
+    .user-page-bottom {
+        padding-top: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-page-box {
+        color: #FECD07;
+        width: 80%;
+        text-shadow: 0 2px 2px #0000008c;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        border: 3px ridge #FECD07;
+    }
+
+    #my-albums {
+        height: 150px;
+        overflow-y:auto;
+    }
+
+}
+
+
+@media screen and (min-width: 501px) and (max-width: 1000px) {
+    .user-page-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 30% 70%;
+        background: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden;
+    }
+
+    .user-page-top {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        text-align: center;
+        
+        margin-top: 60px;
+        margin-left: 15%;
+        
+    }
+
+    .user-page-splash-img {
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        border-left: 4px solid #d3aa059c;
+        border-bottom: 4px solid #d3aa059c;
+    }
+
+    .user-avatar-container {
+        position: absolute;
+        top: 11%;
+        left: 12.1%;
+        width: 20vw;
+        height: 20vw;
+        padding: 10px;
+        background-color: #ffffff;
+        
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+    }
+
+    .user-avatar-container::before {
+        content: "";
+        height: 105%;
+        width: 105%;
+        background: linear-gradient(to right, #ffffff 49%, #d3aa059c 50%);
+        position: absolute;
+        
+        border-radius: 50%;
+        top: 0;
+        z-index: 0;
+    }
+
+    .user-avatar-container::after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        background: #ffffff;
+        position: absolute;
+        border-radius: 50%;
+        top: 2.5%;
+    }
+
+    .user-page-img {
+        z-index: 2;
+        box-shadow: 0px 4px 4px #0000008c;
+        width: 70%;
+    }
+}
