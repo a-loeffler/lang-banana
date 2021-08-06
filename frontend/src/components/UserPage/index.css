@@ -1,3 +1,47 @@
+.icon-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 1fr;
+
+}
+
+.icon-link {
+    text-decoration: none;
+}
+
+.icon-container:hover {
+    cursor: pointer;
+    background-color: #00000023;
+}
+
+.icon-img-container {
+    padding: 2px;
+    padding-bottom: 0;
+}
+
+.icon-img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+
+.icon-text-container {
+    padding-left: 2px;
+    padding-right: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.icon-text {
+    font-size: 8px;
+    color: #000000;
+    text-shadow: none;
+    text-align: left;
+}
+
 @media screen and (max-width: 500px) {
     .user-page-container {
         display: grid;
@@ -111,16 +155,25 @@
     }
 
     .user-page-bottom {
-        padding-top: 70px;
-        display: flex;
+        /* padding-top: 70px; */
+        /* display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center; */
+    }
+
+    .user-page-bottom section {
+        text-align: center;
+
+    }
+
+    .space-bottom-50 {
+        margin-bottom: 50px;
     }
 
     .user-page-box {
-        color: #FECD07;
+        
         width: 80%;
-        text-shadow: 0 2px 2px #0000008c;
+        margin: auto;
         background-color: #ffffff;
         display: flex;
         justify-content: center;
@@ -141,6 +194,46 @@
         font-weight: 900;
         text-shadow: 0 1px 2px #0000008c;
     }
+
+    .user-page-box-title {
+        font-size: 24px;
+        color: #FECD07;
+        
+        text-shadow: 0 2px 2px #0000008c;
+        
+        margin-bottom: 5px;
+        
+    }
+
+    .user-page-button {
+        width: 100px;
+        height: 25px;
+        background-color: #FECD07;
+        border: none;
+        box-shadow: 0 2px 2px #0000008c;
+        margin-top: 10px;
+        position: relative;
+
+
+    }
+
+    .user-page-button:hover {
+        filter: brightness(75%);
+        top: 1px;
+    }
+
+    .user-page-button:active {
+        top: 2px;
+    }
+
+    .user-page-icons-container {
+        display: grid;
+        grid-auto-rows: 100px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        overflow-y: auto;
+    }
+
+    
 }
 
 
@@ -187,9 +280,7 @@
         border-radius: 50%;
         display: flex;
         justify-content: center;
-        align-items: center;
-        
-        
+        align-items: center;        
     }
 
     .user-avatar-container::before {
@@ -227,17 +318,268 @@
         background-color: #ffffff;
         display: flex;
         justify-content: center;
-        border: 3px ridge #FECD07;
+        border: 4px ridge #FECD07;
         margin: auto;
     }
 
+    .space-bottom-50 {
+        margin-bottom: 50px;
+    }
+
     #my-albums {
-        height: 150px;
-        overflow-y:auto;
+        height: 250px;
+        overflow-y: auto;
+        padding: 5px;
+    }
+
+    #my-tracks {
+        height: 350px;
+        overflow-y: auto;
+        padding: 5px;
+    }
+
+    .user-page-box-title {
+        font-size: 28px;
+        color: #FECD07;
+        text-shadow: 0 2px 2px #0000008c;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .user-page-icons-container {
+        display: grid;
+        grid-auto-rows: 140px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        overflow-y: auto;
+        
+    }
+
+    .icon-container {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 3fr 2fr;
+        border-radius: 4px;
     }
 
     .user-page-bottom {
         margin-top: 60px;
+        padding-top: 20px;
+        background-color: #206082;
+    }
+
+    .user-page-name {
+        position: absolute;
+        top: 90px;
+        left: 225px;
+        font-size: 36px;
+        color: #206082;
+        font-weight: 900;
+        text-shadow: 0 1px 2px #0000008c;
+    }
+
+    .user-buttons-container {
+        text-align: center;
+    }
+
+    .user-page-button {
+        width: 150px;
+        height: 35px;
+        background-color: #FECD07;
+        border: none;
+        box-shadow: 0 2px 2px #0000008c;
+        margin: auto;
+        margin-top: 10px;
+        position: relative;
+    }
+
+    .user-page-button:hover {
+        filter: brightness(75%);
+        top: 1px;
+    }
+
+    .user-page-button:active {
+        top: 2px;
+    }
+
+    
+}
+
+@media screen and (min-width: 1001px) {
+    .user-page-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 250px 1fr;
+        background: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    .user-page-top {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        text-align: center;
+        border-bottom: 4px solid #333333;
+        background-color: #333333;
+        position: relative;
+    }
+
+    .user-page-splash-img {
+        width: 100%;
+        height: auto;
+        z-index: 0;
+        border-left: 4px solid #333333;
+        
+        margin-left: 120px;
+    }
+
+    .user-avatar-container {
+        position: absolute;
+        top: 38px;
+        left: 41px;
+        width: 160px;
+        height: 160px;
+        padding: 10px;
+        background-color: #ffffff;
+        
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+    }
+
+    .user-avatar-container::before {
+        content: "";
+        height: 105%;
+        width: 105%;
+        background: linear-gradient(to right, #FECD07 52%, #333333 50%);
+        position: absolute;
+        
+        border-radius: 50%;
+        top: 0;
+        z-index: 0;
+    }
+
+    .user-avatar-container::after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        background: #ffffff;
+        position: absolute;
+        border-radius: 50%;
+        top: 2.5%;
+    }
+
+    .user-page-img {
+        z-index: 2;
+        box-shadow: 0px 4px 4px #0000008c;
+        width: 70%;
+    }
+
+    .user-page-box {
+        color: #FECD07;
+        width: 80%;
+        text-shadow: 0 2px 2px #0000008c;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        border: 4px ridge #FECD07;
+        margin: auto;
+    }
+
+    .space-bottom-50 {
+        margin-bottom: 50px;
+    }
+
+    #my-albums {
+        height: 250px;
+        overflow-y: auto;
+        padding: 5px;
+    }
+
+    #my-tracks {
+        height: 350px;
+        overflow-y: auto;
+        padding: 5px;
+    }
+
+    .user-page-box-title {
+        font-size: 28px;
+        color: #FECD07;
+        text-shadow: 0 2px 2px #0000008c;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .user-page-icons-container {
+        display: grid;
+        grid-auto-rows: 150px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-auto-flow: column;
+        overflow-y: auto;
+        
+    }
+
+    .icon-container {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 3fr 2fr;
+        border-radius: 4px;
+    }
+
+    .user-page-bottom {
+        
+        padding-top: 20px;
+        background-color: #206082;
+    }
+
+    .user-page-name {
+        position: absolute;
+        top: 90px;
+        left: 225px;
+        font-size: 36px;
+        color: #206082;
+        font-weight: 900;
+        text-shadow: 0 1px 2px #0000008c;
+    }
+
+    .user-buttons-container {
+        text-align: center;
+    }
+
+    .user-page-button {
+        width: 150px;
+        height: 35px;
+        background-color: #FECD07;
+        border: none;
+        box-shadow: 0 2px 2px #0000008c;
+        margin: auto;
+        margin-top: 10px;
+        position: relative;
+    }
+
+    .user-page-button:hover {
+        filter: brightness(75%);
+        top: 1px;
+    }
+
+    .user-page-button:active {
+        top: 2px;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .user-page-icons-container {
+        display: grid;
+        grid-auto-rows: 150px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-auto-flow: column;
+        overflow-y: auto;
         
     }
 }
