@@ -73,6 +73,9 @@ const UserPage = () => {
             
             <div className="user-page-top">
                 <img className="user-page-splash-img" alt="" src="/images/userpage-splash-pattern.png"></img>
+                <div className="user-page-name-container">
+                    <h1 className="user-page-name">{currentUser.userName}</h1>
+                </div>
                 <div className="user-avatar-container">
                     {isCurrentUser &&
                      <>
@@ -84,7 +87,6 @@ const UserPage = () => {
                     <button className="user-edit-button tl">Edit Settings</button>
                     <button className="user-edit-button tr">Change Avatar</button>
                 </div>}
-                
             </div>
             <div className="user-page-bottom">
                 <div className="user-page-box" id="my-albums">
