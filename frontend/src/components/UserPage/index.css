@@ -2,37 +2,46 @@
     .user-page-container {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 25% 75%;
+        grid-template-rows: 300px 75%;
         height: 150vh;
         background: #206082;
         font-family: Arial, Helvetica, sans-serif;
+        
     }
     
     
     .user-page-top {
         width: 100%;
         height: 100%;
-        overflow: hidden;
+        /* overflow: hidden;
         border-bottom-left-radius: 50%;
-        border-bottom-right-radius: 50%;
+        border-bottom-right-radius: 50%; */
         text-align: center;
         position: relative;
         margin-top: 60px;
-        filter:drop-shadow(0px 2px 2px #0000008c);
+        filter: drop-shadow(0px 2px 2px #0000008c);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .user-page-splash-img {
         width: 100%;
-        
+        min-height: 100%;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
         z-index: 0;
+        overflow: hidden;
     }
 
     .user-avatar-container {
-        position: absolute;
-        top: 11vw;
-        left: 18.5vw;
-        width: 40vw;
-        height: 40vw;
+        /* position: absolute; */
+        position: relative;
+        top: -180px;
+        flex-shrink: 0;
+        width: 120px;
+        height: 120px;
         padding: 10px;
         background-color: #ffffff;
         border: 6px solid #000000;
@@ -41,6 +50,7 @@
         justify-content: center;
         align-items: center;
         filter: drop-shadow(0 2px 2px #0000008c);
+        z-index: 2;
     }
 
     .user-page-img {
@@ -59,6 +69,7 @@
         position: absolute;
         font-size: 11px;
         box-shadow: 0 2px 2px #0000008c;
+        z-index: 2;
     }
 
     .user-edit-container {
@@ -69,29 +80,29 @@
     }
 
     .tl {
-        top: 7vh;
-        left: 2vw;
+        top: 80px;
+        left: 3vw;
     }
 
     .tl:hover {
-        top: 7.2vh;
+        top: 81px;
     }
 
     .tl:active {
-        top: 7.4vh;
+        top: 82px;
     }
 
     .tr {
-        top: 7vh;
-        right: 2vw;
+        top: 80px;
+        right: 3vw;
     }
 
     .tr:hover {
-        top: 7.2vh;
+        top: 81px;
     }
 
     .tr:active {
-        top: 7.4vh;
+        top: 82px;
     }
 
     .user-edit-button:hover {
@@ -121,6 +132,15 @@
         overflow-y:auto;
     }
 
+
+    .user-page-name {
+        position: relative;
+        top: -200px;
+        font-size: 28px;
+        color: #206082;
+        font-weight: 900;
+        text-shadow: 0 1px 2px #0000008c;
+    }
 }
 
 
@@ -128,10 +148,11 @@
     .user-page-container {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 30% 70%;
+        grid-template-rows: 250px 1fr;
         background: #ffffff;
         font-family: Arial, Helvetica, sans-serif;
         overflow: hidden;
+        height: 100%;
     }
 
     .user-page-top {
@@ -139,26 +160,27 @@
         height: 100%;
         overflow: hidden;
         text-align: center;
-        
+        border-bottom: 4px solid #333333;
         margin-top: 60px;
-        margin-left: 15%;
-        
+        background-color: #333333;
+        position: relative;
     }
 
     .user-page-splash-img {
         width: 100%;
-        height: 100%;
+        height: auto;
         z-index: 0;
-        border-left: 4px solid #d3aa059c;
-        border-bottom: 4px solid #d3aa059c;
+        border-left: 4px solid #333333;
+        
+        margin-left: 120px;
     }
 
     .user-avatar-container {
         position: absolute;
-        top: 11%;
-        left: 12.1%;
-        width: 20vw;
-        height: 20vw;
+        top: 38px;
+        left: 41px;
+        width: 160px;
+        height: 160px;
         padding: 10px;
         background-color: #ffffff;
         
@@ -174,7 +196,7 @@
         content: "";
         height: 105%;
         width: 105%;
-        background: linear-gradient(to right, #ffffff 49%, #d3aa059c 50%);
+        background: linear-gradient(to right, #FECD07 52%, #333333 50%);
         position: absolute;
         
         border-radius: 50%;
@@ -196,5 +218,26 @@
         z-index: 2;
         box-shadow: 0px 4px 4px #0000008c;
         width: 70%;
+    }
+
+    .user-page-box {
+        color: #FECD07;
+        width: 80%;
+        text-shadow: 0 2px 2px #0000008c;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        border: 3px ridge #FECD07;
+        margin: auto;
+    }
+
+    #my-albums {
+        height: 150px;
+        overflow-y:auto;
+    }
+
+    .user-page-bottom {
+        margin-top: 60px;
+        
     }
 }

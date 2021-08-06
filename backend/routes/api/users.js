@@ -63,7 +63,7 @@ router.get('/:userId(\\d+)', asyncHandler(async (req, res)=> {
 
   const userId = parseInt(req.params.userId, 10);
 
-  console.log("~~~~~~~~~~~~~~~~~~~~~~~>", userId)
+  
 
   const searchObject = {
     include: [{model: Album}, {model: Track}],
@@ -72,7 +72,11 @@ router.get('/:userId(\\d+)', asyncHandler(async (req, res)=> {
 
   const userData = await User.findByPk(userId, searchObject);
 
-  console.log(userData)
+  console.log("=========>", userData)
+
+  if (userData.dataValues.avatarUrl === null) {
+    userData.dataValues.avatarUrl = "https://i.ibb.co/XSSZnYp/albumimggeneric.png"
+  }
 
   return res.json({ userData })
 
