@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-
 import { useParams } from "react-router-dom";
-
 import { useSelector, useDispatch } from "react-redux";
 
 import { fetchDataForOneUser } from "../../store/user";
+import Icon from "./Icon";
 
 
 const UserPage = () => {
@@ -12,9 +11,11 @@ const UserPage = () => {
 
     const userPageId = Number(useParams().userPageId);
 
+    console.log("userPageId", userPageId, typeof(userPageId))
+
     const currentUser = useSelector(state => state.session.user)
 
-    const userPageData = useSelector(state => state.user.userPageData)
+    const userPageDataFromStore = useSelector(state => state.user.userPageData)
 
     const [isCurrentUser, setIsCurrentUser] = useState(false);
 
@@ -37,12 +38,16 @@ const UserPage = () => {
             if (currentUser.id === userPageId) {
                 setIsCurrentUser(true);
                 console.log(isCurrentUser);
+            } else {
+                setIsCurrentUser(false)
+                console.log(isCurrentUser)
             }
         } else {
             console.log("Nope")
         }
 
-    }, )
+        
+    }, [userPageId])
 
     useEffect(() => {
         // getPageData(userPageId);
@@ -50,22 +55,27 @@ const UserPage = () => {
 
     useEffect(() => {
 
-        console.log(userPageData)
-        if (userPageData[userPageId] === undefined) {
+        console.log(userPageDataFromStore)
+        if (userPageDataFromStore[userPageId] === undefined) {
             console.log("here 53")
             dispatch(fetchDataForOneUser(userPageId))
             .then(() => {
-                if (userPageData[userPageId].length === 0) {
+                if (userPageDataFromStore[userPageId].length === 0) {
                     console.log("here 58")
                     setPageData("no user in database")
-            };
+                } else {
+                    setPageData(userPageDataFromStore[userPageId])
+                }
             })
+        } else {
+            setPageData(userPageDataFromStore[userPageId]);
+            console.log(pageData);
         }
 
         
-
-        setPageData(userPageData);
-        console.log(pageData);
+        console.log(pageData)
+        
+        
     }, )
 
     return (
@@ -74,12 +84,17 @@ const UserPage = () => {
             <div className="user-page-top">
                 <img className="user-page-splash-img" alt="" src="/images/userpage-splash-pattern.png"></img>
                 <div className="user-page-name-container">
-                    <h1 className="user-page-name">{currentUser.userName}</h1>
+                    <h1 className="user-page-name">{pageData.userName}</h1>
                 </div>
                 <div className="user-avatar-container">
                     {isCurrentUser &&
                      <>
                         <img className="user-page-img" src={`${currentUser.avatarUrl ? currentUser.avatarUrl : "https://i.ibb.co/XSSZnYp/albumimggeneric.png"}`}></img>
+                    </>
+                    }
+                    {!isCurrentUser &&
+                     <>
+                        <img className="user-page-img" src={`${pageData.avatarUrl ? pageData.avatarUrl : "https://i.ibb.co/XSSZnYp/albumimggeneric.png"}`}></img>
                     </>
                     }
                 </div>
@@ -89,13 +104,30 @@ const UserPage = () => {
                 </div>}
             </div>
             <div className="user-page-bottom">
-                <div className="user-page-box" id="my-albums">
-                    <h1>My Albums</h1>
-                </div>
-                {isCurrentUser && 
-                <div className="user-buttons-container">
-                    <button className="user-page-button">My Albums</button>
-                </div>}
+                <section className="space-bottom-50">
+                    <h1 className="user-page-box-title">{isCurrentUser ? "My Albums" : "Albums"}</h1>
+                    <div className="user-page-box" id="my-albums">
+                        <div className="user-page-icons-container">
+                            {pageData.Albums?.map((album, index) => <Icon key={index} name={album.name} imageUrl={album.coverArtUrl} linkUrl={`/albums/${album.id}`}/>)}
+                        </div>
+                    </div>
+                    {isCurrentUser && 
+                    <div className="user-buttons-container">
+                        <button className="user-page-button">Edit Albums</button>
+                    </div>}
+                </section>
+                <section className="space-bottom-50">
+                    <h1 className="user-page-box-title">{isCurrentUser ? "My Tracks" : "Tracks"}</h1>
+                    <div className="user-page-box" id="my-tracks">
+                        <div className="user-page-icons-container">
+                            {pageData.Tracks?.map((track, index) => <Icon key={index} name={track.name} imageUrl={track.Album.coverArtUrl} linkUrl={`/tracks/${track.id}`}/>)}
+                        </div>
+                    </div>
+                    {isCurrentUser && 
+                    <div className="user-buttons-container">
+                        <button className="user-page-button">Edit Tracks</button>
+                    </div>}
+                </section>
             </div>
         </div>
     )

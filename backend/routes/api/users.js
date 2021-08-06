@@ -66,13 +66,13 @@ router.get('/:userId(\\d+)', asyncHandler(async (req, res)=> {
   
 
   const searchObject = {
-    include: [{model: Album}, {model: Track}],
+    include: [{model: Album}, {model: Track, include: [{model: Album}]}],
     attributes: ['id', 'userName', 'avatarUrl']
   }
 
   const userData = await User.findByPk(userId, searchObject);
 
-  console.log("=========>", userData)
+  
 
   if (userData.dataValues.avatarUrl === null) {
     userData.dataValues.avatarUrl = "https://i.ibb.co/XSSZnYp/albumimggeneric.png"

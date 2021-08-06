@@ -34,7 +34,7 @@ export const fetchDataForOneUser = (userId) => async (dispatch) => {
 
     const data = await response.json();
     
-    dispatch(getDataForOneUser(data, userId));
+    dispatch(getDataForOneUser(data.userData, userId));
 
 }
 
