@@ -1,14 +1,21 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import TitleEdit from "./TitleEdit";
+import MediaIcon from "./MediaIcon";
+
+import { getTrackPageData } from "../../store/tracks";
+import { getAlbumPageData } from "../../store/album";
 
 const MediaPage = (pageType) => {
-
+    const dispatch = useDispatch();
 
     const id = Number(useParams().id);
     console.log(id)
 
+
+    const [title, setTitle] = useState("Title")
     const [editOpen, setEditOpen] = useState(false);
 
 
@@ -30,15 +37,19 @@ const MediaPage = (pageType) => {
                 <div className="media-page-title-container">
                     {editOpen === false && 
                     <>
-                        <h1 className="media-page-title">Title</h1>
+                        <h1 className="media-page-title">{title}</h1>
                         <button className="media-page-edit-button" onClick={() => setEditOpen(true)}>Edit</button>
                     </>
                     }
-                    {editOpen === true && <TitleEdit pageType={pageType} previousTitle={"Title"} setEditOpen={setEditOpen}/>}
+                    {editOpen === true && <TitleEdit pageType={pageType} previousTitle={title} setEditOpen={setEditOpen} setTitle={setTitle}/>}
                 </div>
             </section>
             <section className="media-page-bottom">
-
+                <div className="media-page-box">
+                    <div className="media-icons-grid">
+                        <MediaIcon source="https://i.ibb.co/XSSZnYp/albumimggeneric.png" title="Icon Title" />
+                    </div>
+                </div>
             </section>
         </div>
     )

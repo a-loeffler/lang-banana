@@ -3,8 +3,9 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 200px 1fr;
-        margin-top: 60px;
+        padding-top: 60px;
         font-family: Arial, Helvetica, sans-serif;
+        height: 100%;
     }
 
     .media-page-top {
@@ -90,4 +91,82 @@
         font-weight: 700;
     }
 
+    .media-page-bottom {
+        background-color: #FECD07;
+        padding-top: 20px;
+    }
+
+    .media-page-box {
+        margin: auto;
+        background-color: #fff;
+        width: 80%;
+        height: 200px;
+        border: 4px ridge #206082;
+        overflow-y: auto;
+    }
+
+    .media-icons-grid {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-auto-rows: 90px;
+        
+    }
+
+    .media-icon-container {
+        margin: 2px;
+        padding: 3px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 80% 20%;
+        position: relative;
+        border-radius: 3px;
+    }
+
+    .media-icon-container:hover {
+        background-color: #c9c9c9bc;
+        cursor: pointer;
+
+    }
+
+    .media-icon-image-container {
+        text-align: center;
+    }
+
+    .media-icon-image {
+        max-height: 90%;
+        max-width: 90%;
+    }
+
+    .media-icon-remove-button {
+        padding: 2px 5px;
+        width: max-content;
+        font-size: 7px;
+        color: #fff;
+        background-color: red;
+        border: none;
+        border-radius: 3px;
+        position: absolute;
+        right: 0;
+        top: 3px;
+    }
+
+    .media-icon-remove-button:hover {
+        top: 4px;
+        background-color: rgb(182, 0, 0);
+        cursor: pointer;
+    }
+
+    .media-icon-remove-button:active {
+        top: 5px;
+    }
+
+    .media-icon-title-container {
+        text-overflow: ellipsis;
+    }
+
+    .media-icon-title {
+        font-size: 10px;
+        padding: 0 6px;
+    }
 }
