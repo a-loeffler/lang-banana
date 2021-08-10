@@ -9,6 +9,12 @@ const MediaPage = (pageType) => {
     console.log(id)
 
 
+    //To do:  if media belongs to logged-in user, allow
+    //options to edit the media...
+    //track: edit name, delete
+    //album: edit name, delete 
+
+
     return (
         <div className="media-page-container">
             <section className="media-page-top">
@@ -21,6 +27,9 @@ const MediaPage = (pageType) => {
                 <div className="media-page-title-container">
                     <h1 className="media-page-title">Title</h1>
                 </div>
+            </section>
+            <section className="media-page-bottom">
+
             </section>
         </div>
     )

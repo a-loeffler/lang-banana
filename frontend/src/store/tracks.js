@@ -5,6 +5,7 @@ import { csrfFetch } from './csrf';
 const GET_TRACKS = "tracks/getTracks";
 const POST_TRACK = "tracks/postTrack";
 const PLAY_TRACK = "track/playTrack";
+const GET_ONE_TRACK = "track/getTrack";
 
 
 
@@ -26,6 +27,13 @@ const playTrack = (playTrackData) => {
     return {
         type: PLAY_TRACK,
         payload: playTrackData
+    }
+}
+
+const getOneTrack = (trackData) => {
+    return {
+        type: GET_ONE_TRACK,
+        payload: trackData
     }
 }
 
@@ -77,6 +85,16 @@ export const postNewTrack = (newTrackData) => async (dispatch) => {
 export const playSelectedTrack = (playTrackData) => async (dispatch) => {
     dispatch(playTrack(playTrackData))
 };
+
+
+export const getTrackPageData = (trackId) => async (dispatch) => {
+    const res = await fetch(`/api/tracks/${trackId}`)
+
+    const data = await res.json();
+
+    dispatch(getOneTrack(data))
+}
+
 
 const initialState = {nowPlaying: {}};
 
