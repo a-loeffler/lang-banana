@@ -5,6 +5,7 @@ import sessionReducer from './session';
 import tracksReducer from './tracks';
 import metaReducer from './meta';
 import userReducer from './user';
+import albumsReducer from './album';
 
 let enhancer;
 
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
     tracksList: tracksReducer,
     meta: metaReducer,
     user: userReducer,
+    albumsList: albumsReducer,
 
 });
 
