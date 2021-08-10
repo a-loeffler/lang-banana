@@ -138,27 +138,57 @@
         max-width: 90%;
     }
 
-    .media-icon-remove-button {
+    .media-icon-image:active {
+        filter: brightness(80%);
+    }
+
+    .active-media {
+        filter: brightness(80%);
+    }
+
+    .media-icon-button {
         padding: 2px 5px;
         width: max-content;
         font-size: 7px;
         color: #fff;
-        background-color: red;
         border: none;
         border-radius: 3px;
         position: absolute;
         right: 0;
-        top: 3px;
     }
 
-    .media-icon-remove-button:hover {
-        top: 4px;
-        background-color: rgb(182, 0, 0);
+    .media-icon-button:hover {
+        
         cursor: pointer;
     }
 
-    .media-icon-remove-button:active {
+    .visit-button {
+        top: 4px;
+        background-color: #2789b9;
+        
+    }
+
+    .visit-button:hover {
+        background-color: #206082;
+    }
+
+    .visit-button:active {
         top: 5px;
+    }
+
+    .remove-button {
+        background-color: red;
+        top: 16px;
+        cursor: pointer;
+    }
+
+    .remove-button:hover {
+        background-color: rgb(182, 0, 0);
+        
+    }
+
+    .remove-button:active {
+        top: 17px;
     }
 
     .media-icon-title-container {

@@ -17,6 +17,7 @@ const MediaPage = (pageType) => {
 
     const [title, setTitle] = useState("Title")
     const [editOpen, setEditOpen] = useState(false);
+    const [activeTrack, setActiveTrack] = useState(null)
 
 
     //To do:  if media belongs to logged-in user, allow
@@ -47,7 +48,8 @@ const MediaPage = (pageType) => {
             <section className="media-page-bottom">
                 <div className="media-page-box">
                     <div className="media-icons-grid">
-                        <MediaIcon source="https://i.ibb.co/XSSZnYp/albumimggeneric.png" title="Icon Title" />
+                        <MediaIcon imgSource="/images/hoverplay.svg" title="Icon Title" trackFileUrl={"www.google.com"} albumArtUrl={""} artist={""} active={activeTrack === "Icon Title"} setActiveTrack={setActiveTrack}/>
+                        <MediaIcon imgSource="/images/hoverplay.svg" title="Icon Title 2" trackFileUrl={"www.google.com"} albumArtUrl={""} artist={""} active={activeTrack === "Icon Title 2"} setActiveTrack={setActiveTrack}/>
                     </div>
                 </div>
             </section>
