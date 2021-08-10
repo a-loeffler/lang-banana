@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import TitleEdit from "./TitleEdit";
 import MediaIcon from "./MediaIcon";
@@ -8,7 +8,7 @@ import MediaIcon from "./MediaIcon";
 import { getTrackPageData } from "../../store/tracks";
 import { getAlbumPageData } from "../../store/album";
 
-const MediaPage = (pageType) => {
+const MediaPage = ({typeOfPage}) => {
     const dispatch = useDispatch();
 
     const id = Number(useParams().id);
@@ -19,12 +19,19 @@ const MediaPage = (pageType) => {
     const [editOpen, setEditOpen] = useState(false);
     const [activeTrack, setActiveTrack] = useState(null)
 
+    const currentUser = useSelector(state => state.session.user);
+
+    
+
+
 
     //To do:  if media belongs to logged-in user, allow
     //options to edit the media...
     //track: edit name, delete
     //album: edit name, delete 
-
+    useEffect(() => {
+        console.log(typeOfPage)
+    }, [typeOfPage])
 
     return (
         <div className="media-page-container">
@@ -42,16 +49,18 @@ const MediaPage = (pageType) => {
                         <button className="media-page-edit-button" onClick={() => setEditOpen(true)}>Edit</button>
                     </>
                     }
-                    {editOpen === true && <TitleEdit pageType={pageType} previousTitle={title} setEditOpen={setEditOpen} setTitle={setTitle}/>}
+                    {editOpen === true && <TitleEdit typeOfPage={typeOfPage} previousTitle={title} setEditOpen={setEditOpen} setTitle={setTitle}/>}
                 </div>
             </section>
             <section className="media-page-bottom">
+                {typeOfPage === "album" && 
                 <div className="media-page-box">
                     <div className="media-icons-grid">
                         <MediaIcon imgSource="/images/hoverplay.svg" title="Icon Title" trackFileUrl={"www.google.com"} albumArtUrl={""} artist={""} active={activeTrack === "Icon Title"} setActiveTrack={setActiveTrack}/>
                         <MediaIcon imgSource="/images/hoverplay.svg" title="Icon Title 2" trackFileUrl={"www.google.com"} albumArtUrl={""} artist={""} active={activeTrack === "Icon Title 2"} setActiveTrack={setActiveTrack}/>
                     </div>
                 </div>
+                }
             </section>
         </div>
     )

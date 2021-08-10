@@ -20,6 +20,9 @@ const MediaIcon = ({imgSource, title, trackFileUrl, albumArtUrl, artist, setActi
                 <img src={imgSource} alt={title} className={`media-icon-image ${active === true ? "active-media" : ""}`} onClick={() => mediaPlayerActions()}></img>
                 <button className="media-icon-button visit-button">View Page</button>
                 <button className="media-icon-button remove-button">Remove</button>
+                <button className="media-download-button">
+                    <img className="media-download-icon" alt="" src="/images/download-icon.svg"></img>
+                </button>
             </div>
             <div className="media-icon-title-container">
                 <h1 className="media-icon-title">{title}</h1>

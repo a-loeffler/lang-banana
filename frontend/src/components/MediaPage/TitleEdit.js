@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-const TitleEdit = ({pageType, previousTitle, setEditOpen, setTitle}) => {
+const TitleEdit = ({typeOfPage, previousTitle, setEditOpen, setTitle}) => {
 
 
     const [pageTitle, setPageTitle] = useState(previousTitle)
