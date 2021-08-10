@@ -82,6 +82,9 @@ function App() {
             <Route exact path="/albums/:id">
               <MediaPage pageType={"album"} />
             </Route>
+            <Route exact path="/tracks/:id">
+              <MediaPage pageType={"track"} />
+            </Route>
           </Switch>
         </div>
         <div className="display-side-space" />

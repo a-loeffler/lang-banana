@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-
+import TitleEdit from "./TitleEdit";
 
 const MediaPage = (pageType) => {
 
 
     const id = Number(useParams().id);
     console.log(id)
+
+    const [editOpen, setEditOpen] = useState(false);
 
 
     //To do:  if media belongs to logged-in user, allow
@@ -25,7 +28,13 @@ const MediaPage = (pageType) => {
                     <img className="media-page-img" src="https://i.ibb.co/XSSZnYp/albumimggeneric.png"></img>
                 </div>
                 <div className="media-page-title-container">
-                    <h1 className="media-page-title">Title</h1>
+                    {editOpen === false && 
+                    <>
+                        <h1 className="media-page-title">Title</h1>
+                        <button className="media-page-edit-button" onClick={() => setEditOpen(true)}>Edit</button>
+                    </>
+                    }
+                    {editOpen === true && <TitleEdit pageType={pageType} previousTitle={"Title"} setEditOpen={setEditOpen}/>}
                 </div>
             </section>
             <section className="media-page-bottom">
