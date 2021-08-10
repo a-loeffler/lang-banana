@@ -24,7 +24,10 @@ const initialState = {albumPageData: {}}
 const albumsReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ONE_ALBUM: {
+            let newState = {...state};
+            newState[action.payload.id] = action.payload;
 
+            return newState;
         }
         default: {
             return state;

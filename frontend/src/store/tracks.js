@@ -115,6 +115,11 @@ const tracksReducer = (state = initialState, action) => {
             newState["nowPlaying"] = action.payload;
             return newState;
         }
+        case GET_ONE_TRACK: {
+            let newState = {...state};
+            newState[action.payload.id] = action.payload;
+            return newState;
+        }
         default: {
             return state;
         }

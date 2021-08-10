@@ -80,7 +80,10 @@ function App() {
               <UserPage />
             </Route>
             <Route exact path="/albums/:id">
-              <MediaPage pageType={"album"} />
+              <MediaPage typeOfPage={"album"} />
+            </Route>
+            <Route exact path="/tracks/:id">
+              <MediaPage typeOfPage={"track"} />
             </Route>
           </Switch>
         </div>
