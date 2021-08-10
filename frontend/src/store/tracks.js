@@ -96,7 +96,7 @@ export const getTrackPageData = (trackId) => async (dispatch) => {
 }
 
 
-const initialState = {nowPlaying: {}};
+const initialState = {nowPlaying: {}, trackPageData: {}};
 
 const tracksReducer = (state = initialState, action) => {
     switch (action.type) {
