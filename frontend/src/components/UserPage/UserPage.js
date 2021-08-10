@@ -11,7 +11,7 @@ const UserPage = () => {
 
     const userPageId = Number(useParams().userPageId);
 
-    console.log("userPageId", userPageId, typeof(userPageId))
+    
 
     const currentUser = useSelector(state => state.session.user)
 
@@ -33,17 +33,17 @@ const UserPage = () => {
 
     useEffect(() => {
         if (currentUser) {
-            console.log(currentUser.id)
-            console.log(userPageId)
+            // console.log(currentUser.id)
+            // console.log(userPageId)
             if (currentUser.id === userPageId) {
                 setIsCurrentUser(true);
-                console.log(isCurrentUser);
+                // console.log(isCurrentUser);
             } else {
                 setIsCurrentUser(false)
-                console.log(isCurrentUser)
+                // console.log(isCurrentUser)
             }
         } else {
-            console.log("Nope")
+            // console.log("Nope")
         }
 
         
@@ -55,13 +55,13 @@ const UserPage = () => {
 
     useEffect(() => {
 
-        console.log(userPageDataFromStore)
+        // console.log(userPageDataFromStore)
         if (userPageDataFromStore[userPageId] === undefined) {
-            console.log("here 53")
+            // console.log("here 53")
             dispatch(fetchDataForOneUser(userPageId))
             .then(() => {
                 if (userPageDataFromStore[userPageId].length === 0) {
-                    console.log("here 58")
+                    // console.log("here 58")
                     setPageData("no user in database")
                 } else {
                     setPageData(userPageDataFromStore[userPageId])
@@ -69,11 +69,11 @@ const UserPage = () => {
             })
         } else {
             setPageData(userPageDataFromStore[userPageId]);
-            console.log(pageData);
+            // console.log(pageData);
         }
 
         
-        console.log(pageData)
+        // console.log(pageData)
         
         
     }, )

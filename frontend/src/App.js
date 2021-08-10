@@ -17,6 +17,7 @@ import TrackUploadFormPage from './components/TrackUploadFormPage';
 import Search from './components/Search';
 import SplashPage from './components/SplashPage';
 import UserPage from './components/UserPage';
+import MediaPage from './components/MediaPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -77,6 +78,9 @@ function App() {
             </Route>
             <Route exact path="/users/:userPageId">
               <UserPage />
+            </Route>
+            <Route exact path="/albums/:id">
+              <MediaPage pageType={"album"} />
             </Route>
           </Switch>
         </div>
