@@ -10,16 +10,16 @@ const getOneAlbum = (albumData) => {
 
 export const getAlbumPageData = (albumId) => async (dispatch) => {
 
-    const response = await fetch(`/api/albums/:${albumId}}`)
+    const response = await fetch(`/api/albums/${albumId}`)
 
     const data = await response.json();
 
-    dispatch(getOneAlbum(data));
+    dispatch(getOneAlbum(data.albumData));
 
 
 }
 
-const initialState = {albumPageData: {}}
+const initialState = {};
 
 const albumsReducer = (state = initialState, action) => {
     switch (action.type) {
