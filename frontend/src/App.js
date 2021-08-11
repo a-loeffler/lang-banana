@@ -79,10 +79,10 @@ function App() {
             <Route exact path="/users/:userPageId">
               <UserPage />
             </Route>
-            <Route exact path="/albums/:id">
+            <Route exact path="/albums/:albumId">
               <MediaPage typeOfPage={"album"} />
             </Route>
-            <Route exact path="/tracks/:id">
+            <Route exact path="/albums/:albumId/tracks/:trackId">
               <MediaPage typeOfPage={"track"} />
             </Route>
           </Switch>

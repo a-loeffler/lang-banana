@@ -120,7 +120,7 @@ const UserPage = () => {
                     <h1 className="user-page-box-title">{isCurrentUser ? "My Tracks" : "Tracks"}</h1>
                     <div className="user-page-box" id="my-tracks">
                         <div className="user-page-icons-container">
-                            {pageData.Tracks?.map((track, index) => <Icon key={index} name={track.name} imageUrl={track.Album.coverArtUrl} linkUrl={`/tracks/${track.id}`}/>)}
+                            {pageData.Tracks?.map((track, index) => <Icon key={index} name={track.name} imageUrl={track.Album.coverArtUrl} linkUrl={`/albums/${track.Album.id}/tracks/${track.id}`}/>)}
                         </div>
                     </div>
                     {isCurrentUser && 
