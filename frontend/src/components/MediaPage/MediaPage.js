@@ -16,7 +16,7 @@ const MediaPage = ({typeOfPage}) => {
     console.log(albumId, trackId)
 
 
-    const [title, setTitle] = useState("Title")
+    const [title, setTitle] = useState("")
     const [editOpen, setEditOpen] = useState(false);
     const [activeTrack, setActiveTrack] = useState(null);
     const [pageData, setPageData] = useState({});
@@ -34,7 +34,6 @@ const MediaPage = ({typeOfPage}) => {
                     setPageData("No album in database")
                 } else {
                     setPageData(pageDataFromStore[albumId]);
-                    console.log(pageData)
                 }
             })
         } else {
@@ -54,10 +53,29 @@ const MediaPage = ({typeOfPage}) => {
                 setIsCurrentUser(false)
             }
         }
-    }, [pageData])
+    })
 
     console.log(pageData)
     console.log(isCurrentUser)
+
+
+    useEffect(() => {
+
+        if (typeOfPage === "album") {
+            setTitle(pageData.name)
+        } 
+        
+        if (typeOfPage === "track") {
+            console.log(pageData.Tracks)
+            let foundTrack = pageData.Tracks?.filter(track => track.id == trackId)
+            console.log(foundTrack)
+            if (foundTrack?.length > 0) {
+                setTitle(foundTrack[0]?.name)
+            } else {
+                setTitle("Track not found")
+            }
+        }
+    }, )
 
     //To do:  if media belongs to logged-in user, allow
     //options to edit the media...
@@ -91,9 +109,9 @@ const MediaPage = ({typeOfPage}) => {
                 {typeOfPage === "album" && 
                 <div className="media-page-box">
                     <div className="media-icons-grid">
-                        {pageData.Tracks?.map((track, index) => <MediaIcon imgSource="/images/hoverplay.svg" title={track.name} trackFileUrl={track.trackFileUrl} albumArtUrl={pageData.coverArtUrl} artist={pageData.User.userName} active={activeTrack === index} setActiveTrack={setActiveTrack} loggedIn={!!currentUser} owner={isCurrentUser} index={index}/>)}
-                        <MediaIcon imgSource="/images/hoverplay.svg" title="Icon Title" trackFileUrl={"www.google.com"} albumArtUrl={""} artist={""} active={activeTrack === "Icon Title"} setActiveTrack={setActiveTrack} loggedIn={!!currentUser} owner={isCurrentUser}/>
-                        <MediaIcon imgSource="/images/hoverplay.svg" title="Icon Title 2" trackFileUrl={"www.google.com"} albumArtUrl={""} artist={""} active={activeTrack === "Icon Title 2"} setActiveTrack={setActiveTrack}/>
+                        {pageData.Tracks?.map((track, index) => <MediaIcon imgSource="/images/hoverplay.svg" title={track.name} trackFileUrl={track.trackFileUrl} albumArtUrl={pageData.coverArtUrl} artist={pageData.User.userName} active={activeTrack === index} setActiveTrack={setActiveTrack} loggedIn={!!currentUser} owner={isCurrentUser} index={index} albumId={albumId} trackId={track.id}/>)}
+                        {/* <MediaIcon imgSource="/images/hoverplay.svg" title="Icon Title" trackFileUrl={"www.google.com"} albumArtUrl={""} artist={""} active={activeTrack === "Icon Title"} setActiveTrack={setActiveTrack} loggedIn={!!currentUser} owner={isCurrentUser}/>
+                        <MediaIcon imgSource="/images/hoverplay.svg" title="Icon Title 2" trackFileUrl={"www.google.com"} albumArtUrl={""} artist={""} active={activeTrack === "Icon Title 2"} setActiveTrack={setActiveTrack}/> */}
                     </div>
                 </div>
                 }

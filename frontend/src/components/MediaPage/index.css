@@ -53,6 +53,7 @@
         position: absolute;
         top: 65px;
         left: 150px;
+        
     }
 
     .media-page-title {
@@ -60,6 +61,7 @@
         font-size: 28px;
         font-weight: 700;
         text-shadow: 0 2px 2px #000000bc;
+        max-width: 200px;
     }
 
     .media-page-artist {
